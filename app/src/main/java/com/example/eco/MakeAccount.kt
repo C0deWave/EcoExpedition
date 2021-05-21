@@ -73,7 +73,7 @@ class MakeAccount : AppCompatActivity() {
         }
 
         // 이미지 변경기능
-        userImageView.setOnClickListener { getImage() }
+        userImageView.setOnClickListener {  }
 
         // 회원가입 버튼
         signInButton_MakeAccount.setOnClickListener {
