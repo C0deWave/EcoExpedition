@@ -6,24 +6,42 @@ import android.graphics.Color
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.core.view.get
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_make_account.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
+import okhttp3.Response
+import java.io.IOException
 
 class MakeAccount : AppCompatActivity() {
 
     val GET_GALLERY_IMAGE = 200;    // 안드로이드에서 이미지를 가져오기 상태 표시 위한 전역 변수
     var selectImageUri: Uri? = null // 선택된 이미지의 Uri
+    var age = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_make_account)
 
         // 나이 선택 부분 스피너 어댑터
-        val spinner: Spinner = findViewById(R.id.spinner)
+        //val spinner: Spinner = findViewById(R.id.spinner)
         ArrayAdapter.createFromResource(
                 this,
                 R.array.old,
@@ -33,8 +51,10 @@ class MakeAccount : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             // Apply the adapter to the spinner
             spinner.adapter = adapter
-        }
+            var listener = SpinnerListener()
+            spinner.onItemSelectedListener = listener
 
+        }
         // 뒤로가기 버튼을 눌렀을때
         backButton_makeAccount.setOnClickListener {
             val intent = Intent(applicationContext, banner::class.java)
@@ -42,24 +62,96 @@ class MakeAccount : AppCompatActivity() {
             startActivity(intent)
         }
 
-        userImageView.setOnClickListener {
-            // 이미지 레이아웃 버튼을 눌렀을때
-            getImage()
-        }
+        // 이미지 변경기능
+        userImageView.setOnClickListener { getImage() }
 
+        // 회원가입 버튼
         signInButton_MakeAccount.setOnClickListener {
             if (CheckPassword()){
-
+                makeAccount()
             }
         }
 
-        passwordText2_MakeAccount.doAfterTextChanged {
-            isRightPassword()
+        // 동적으로 비밀번호 확인하는 기능
+        passwordText2_MakeAccount.doAfterTextChanged { isRightPassword() }
+        passwordText1_MakeAccount.doAfterTextChanged { isRightPassword() }
+    }
+
+    inner class SpinnerListener : AdapterView.OnItemSelectedListener {
+        override fun onNothingSelected(p0: AdapterView<*>?) {
+
         }
 
-        passwordText1_MakeAccount.doAfterTextChanged {
-            isRightPassword()
+        override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) { // p2가 사용자가 선택한 곳의 인덱스
+            Log.d("지정한 나이", p2.toString())
+            setAge(p2)
         }
+    }
+
+    private fun setAge(p2: Int) {
+        when(p2){
+            0 -> age = "5"
+            0 -> age = "15"
+            0 -> age = "25"
+            0 -> age = "35"
+            0 -> age = "45"
+            0 -> age = "55"
+            0 -> age = "65"
+            0 -> age = "75"
+            0 -> age = "85"
+            0 -> age = "95"
+            0 -> age = "105"
+        }
+    }
+
+    private fun makeAccount() {
+        CoroutineScope(Dispatchers.Main).launch {
+            val api = CoroutineScope(Dispatchers.Default).async {
+                //데이터 꺼네오기
+                val email = editTextTextPersonName.text
+                val password = passwordText2_MakeAccount.text
+                val name = editTextTextPersonName4.text
+
+                // 보낼 데이터 json으로 만들기
+                val data = "{\n" +
+                        "    \"email\" : \"${email}\",\n" +
+                        "    \"name\" : \"${name}\",\n" +
+                        "    \"pswd\" : \"${password}\",\n" +
+                        "    \"age\" : \"${age}\",\n" +
+                        "    \"d_amount\" : \"0\",\n" +
+                        "    \"pic\" : \"\",\n" +
+                        "    \"p_group\" : \"\"\n" +
+                        "}"
+
+                val media = "application/json; charset=utf-8".toMediaType();
+                val body = data.toRequestBody(media)
+
+                // 1. 클라이언트 만들기
+                val client = OkHttpClient.Builder().build()
+                // 2. 요청
+                val req = Request.Builder()
+                        .url("https://3zz6r8wnma.execute-api.ap-northeast-2.amazonaws.com/member_insert")
+                        .post(body)
+                        .build()
+                // 3. 응답
+                client.newCall(req).enqueue(object : Callback {
+                    override fun onFailure(call: Call, e: IOException) {
+
+                    }
+
+                    override fun onResponse(call: Call, response: Response) {
+                        // 응답이 오면 메인스레드에서 처리를 진행한다.
+                        CoroutineScope(Dispatchers.Main).launch {
+                            Toast.makeText(applicationContext, "회원가입성공", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(applicationContext, MainActivity::class.java)
+                            startActivity(intent)
+                        }
+                    }
+                })
+
+            }.await()
+        }
+
     }
 
     private fun isRightPassword() {

@@ -17,14 +17,15 @@
         <activity android:name=".WriteBoardPage"></activity>
         <activity android:name=".detail_BulitInBoard" />
         <activity android:name=".MainActivity">
+        </activity>
+        <activity android:name=".MakeAccount" />
+        <activity android:name=".banner" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MakeAccount" />
-        <activity android:name=".banner" />
     </application>
 
 </manifest>
