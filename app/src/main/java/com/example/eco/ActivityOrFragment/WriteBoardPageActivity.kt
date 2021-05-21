@@ -2,10 +2,12 @@ package com.example.eco.ActivityOrFragment
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.example.eco.R
 import kotlinx.android.synthetic.main.activity_write_board_page.*
 import kotlinx.coroutines.CoroutineScope
@@ -17,6 +19,8 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
 import java.io.IOException
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class WriteBoardPageActivity : AppCompatActivity() {
 
@@ -24,9 +28,15 @@ class WriteBoardPageActivity : AppCompatActivity() {
     val GET_GALLERY_IMAGE = 200;    // 안드로이드에서 이미지를 가져오기 상태 표시 위한 전역 변수
     var selectImageUri: Uri? = null // 선택된 이미지의 Uri
 
+    val current = LocalDateTime.now()
+    val formatter = DateTimeFormatter.ISO_DATE
+    val formatted = current.format(formatter)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write_board_page)
+
+        Log.d("오늘 날짜","${formatted}")
 
         // 모임 개설하기 버튼
         makeGroupBtn_writeboard.setOnClickListener {
@@ -49,12 +59,11 @@ class WriteBoardPageActivity : AppCompatActivity() {
                 val data = "{" +
                         "\"group_name\" : \"${groupNameText_writeBoard.text}\"," +
                         "\"master_name\" : \"${masterName_writeBoard.text}\"," +
-                        "\"open_date\" : \"2002-01-03\"," +
+                        "\"open_date\" : \"${formatted}\"," +
                         "\"intro\" : \"${introText_writeBoard.text}\"," +
                         "\"group_pic\" : \"\"," +
                         "\"meeting_date\" : \"123\"," +
-                        "\"participant\" : \"aa,vv,cc\"," +
-                        "\"group_id\" : \"${groupNameText_writeBoard.text.toString() + masterName_writeBoard.text}\"" +
+                        "\"participant\" : \"aa,vv,cc\"" +
                         "}"
 
                 val media = "application/json; charset=utf-8".toMediaType();

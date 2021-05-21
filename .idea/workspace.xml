@@ -31,51 +31,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bc86a66-5a99-4a61-89ed-360ebfa53a8b" name="Default Changelist" comment="2021.05.21 회원가입과 로그인 및 배너v1.2&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현&#10;- 일반 로그인 구현&#10;- 자동 로그인 구현&#10;- 로그아웃 구현&#10;- 로그아웃시 뒤로가기를 이용한 메인으로 들어가기 방지&#10;- 스피너에서 나이 지정시 에러 해결&#10;&#10;+&#10;이미지 선택기능 차후로 변경">
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/BoardData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/BoardData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/Body.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/Body.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/BodyX.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/BodyX.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/BulitinBoardItemAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/adapter/BulitinBoardItemAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/Document.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/Document.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/Donation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/Donation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/DustInfo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/DustInfo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/Header.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/Header.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/HeaderX.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/HeaderX.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/Item.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/Item.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ItemX.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/ItemX.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/LoginFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/LoginFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/LoginInfo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/LoginInfo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/LoginSelectFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/LoginSelectFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/MainViewFragment1.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment1.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/MainViewFragment2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment2.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/MainViewFragment3.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment3.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/MainViewFragment4.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment4.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/MakeAccount.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MakeAccountActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/Meta.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/Meta.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ObserveCenterData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/ObserveCenterData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/PageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/adapter/PageAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/Response.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/Response.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ResponseX.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/ResponseX.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/TmLocation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/TmLocation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/URIPathHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ClassRes/URIPathHelper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ViewPagerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/adapter/ViewPagerAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/WriteBoardPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/WriteBoardPageActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/banner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/BannerActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/detail_BulitInBoard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/DetailBulitInBoardActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/settingAccount.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/SettingAccountActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_banner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_banner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail__bulit_in_board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail__bulit_in_board.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_make_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_make_account.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_account.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_write_board_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_write_board_page.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login_select.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login_select.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/WriteBoardPageActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/WriteBoardPageActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,7 +271,28 @@
       <option name="project" value="LOCAL" />
       <updated>1621602334680</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="2021.05.21 클래스,어댑터,데이터 클래스 분리">
+      <created>1621603369174</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1621603369174</updated>
+    </task>
+    <task id="LOCAL-00013" summary="2021.05.21 상세게시판 구현v2.1&#10;- api 연동 완료&#10;&#10;+&#10;- 그룹 참가하기 기능 구현">
+      <created>1621604881295</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1621604881295</updated>
+    </task>
+    <task id="LOCAL-00014" summary="2021.05.21 계정 정보 변경 구현v1.1&#10;+&#10;- 참가 그룹 리스트와 총 기부금액 초기화 에러 수정">
+      <created>1621608148669</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1621608148669</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -351,7 +331,10 @@
     <MESSAGE value="2021.05.21 회원가입과 로그인 및 배너v1.2&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현&#10;- 일반 로그인 구현&#10;- 자동 로그인 구현&#10;- 로그아웃 구현&#10;- 로그아웃시 뒤로가기를 이용한 메인으로 들어가기 방지&#10;- 스피너에서 나이 지정시 에러 해결&#10;&#10;+&#10;이미지 선택기능 차후로 변경" />
     <MESSAGE value="2021.05.21 상세게시판 구현v2&#10;- api 연동 완료" />
     <MESSAGE value="2021.05.21 회원가입과 로그인 및 배너v1.3&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현&#10;- 일반 로그인 구현&#10;- 자동 로그인 구현&#10;- 로그아웃 구현&#10;- 로그아웃시 뒤로가기를 이용한 메인으로 들어가기 방지&#10;- 스피너에서 나이 지정시 에러 해결&#10;&#10;+&#10;- 자동 로그인시 처음 불러올 데이터 없을 때의 에러 해결" />
-    <option name="LAST_COMMIT_MESSAGE" value="2021.05.21 회원가입과 로그인 및 배너v1.3&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현&#10;- 일반 로그인 구현&#10;- 자동 로그인 구현&#10;- 로그아웃 구현&#10;- 로그아웃시 뒤로가기를 이용한 메인으로 들어가기 방지&#10;- 스피너에서 나이 지정시 에러 해결&#10;&#10;+&#10;- 자동 로그인시 처음 불러올 데이터 없을 때의 에러 해결" />
+    <MESSAGE value="2021.05.21 클래스,어댑터,데이터 클래스 분리" />
+    <MESSAGE value="2021.05.21 상세게시판 구현v2.1&#10;- api 연동 완료&#10;&#10;+&#10;- 그룹 참가하기 기능 구현" />
+    <MESSAGE value="2021.05.21 계정 정보 변경 구현v1.1&#10;+&#10;- 참가 그룹 리스트와 총 기부금액 초기화 에러 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="2021.05.21 계정 정보 변경 구현v1.1&#10;+&#10;- 참가 그룹 리스트와 총 기부금액 초기화 에러 수정" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2946" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1621563169365">
@@ -402,33 +385,33 @@
     </state>
     <state x="2559" y="202" key="Github.UntrackedFilesDialog/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621515667669" />
     <state x="685" y="196" key="Github.UntrackedFilesDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1621477779157" />
-    <state width="1266" height="286" key="GridCell.Tab.0.bottom" timestamp="1621602072289">
+    <state width="1257" height="286" key="GridCell.Tab.0.bottom" timestamp="1621608530789">
       <screen x="1920" y="25" width="1792" height="1095" />
     </state>
     <state width="932" height="274" key="GridCell.Tab.0.bottom/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621233936150" />
     <state width="1368" height="273" key="GridCell.Tab.0.bottom/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202724" />
-    <state width="1266" height="286" key="GridCell.Tab.0.bottom/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621602072289" />
+    <state width="1257" height="286" key="GridCell.Tab.0.bottom/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621608530789" />
     <state width="955" height="274" key="GridCell.Tab.0.bottom/0.25.1920.1055@0.25.1920.1055" timestamp="1621176536334" />
-    <state width="1266" height="286" key="GridCell.Tab.0.center" timestamp="1621602072289">
+    <state width="1257" height="286" key="GridCell.Tab.0.center" timestamp="1621608530789">
       <screen x="1920" y="25" width="1792" height="1095" />
     </state>
     <state width="932" height="274" key="GridCell.Tab.0.center/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621233936149" />
     <state width="1368" height="273" key="GridCell.Tab.0.center/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202723" />
-    <state width="1266" height="286" key="GridCell.Tab.0.center/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621602072289" />
+    <state width="1257" height="286" key="GridCell.Tab.0.center/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621608530789" />
     <state width="955" height="274" key="GridCell.Tab.0.center/0.25.1920.1055@0.25.1920.1055" timestamp="1621176536333" />
-    <state width="1266" height="286" key="GridCell.Tab.0.left" timestamp="1621602072289">
+    <state width="1257" height="286" key="GridCell.Tab.0.left" timestamp="1621608530788">
       <screen x="1920" y="25" width="1792" height="1095" />
     </state>
     <state width="932" height="274" key="GridCell.Tab.0.left/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621233936149" />
     <state width="1368" height="273" key="GridCell.Tab.0.left/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202723" />
-    <state width="1266" height="286" key="GridCell.Tab.0.left/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621602072289" />
+    <state width="1257" height="286" key="GridCell.Tab.0.left/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621608530788" />
     <state width="955" height="274" key="GridCell.Tab.0.left/0.25.1920.1055@0.25.1920.1055" timestamp="1621176536333" />
-    <state width="1266" height="286" key="GridCell.Tab.0.right" timestamp="1621602072289">
+    <state width="1257" height="286" key="GridCell.Tab.0.right" timestamp="1621608530789">
       <screen x="1920" y="25" width="1792" height="1095" />
     </state>
     <state width="932" height="274" key="GridCell.Tab.0.right/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621233936149" />
     <state width="1368" height="273" key="GridCell.Tab.0.right/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202723" />
-    <state width="1266" height="286" key="GridCell.Tab.0.right/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621602072289" />
+    <state width="1257" height="286" key="GridCell.Tab.0.right/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621608530789" />
     <state width="955" height="274" key="GridCell.Tab.0.right/0.25.1920.1055@0.25.1920.1055" timestamp="1621176536333" />
     <state x="2608" y="219" key="RollbackChangesDialog" timestamp="1621514904909">
       <screen x="1920" y="25" width="1792" height="1095" />
@@ -440,10 +423,10 @@
     </state>
     <state x="337" y="101" key="SettingsEditor/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621235327844" />
     <state x="2235" y="104" key="SettingsEditor/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621515279874" />
-    <state x="2316" y="246" key="Vcs.Push.Dialog.v2" timestamp="1621602339695">
+    <state x="2316" y="246" key="Vcs.Push.Dialog.v2" timestamp="1621608153657">
       <screen x="1920" y="25" width="1792" height="1095" />
     </state>
-    <state x="2316" y="246" key="Vcs.Push.Dialog.v2/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621602339695" />
+    <state x="2316" y="246" key="Vcs.Push.Dialog.v2/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621608153657" />
     <state x="2872" y="332" key="chooseDestDirectoryDialog" timestamp="1621347949544">
       <screen x="1920" y="25" width="1792" height="1095" />
     </state>
