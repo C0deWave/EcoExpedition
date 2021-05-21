@@ -1,6 +1,9 @@
 package com.example.eco.ActivityOrFragment
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+//import android.graphics.Region
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,8 +12,25 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import com.amazonaws.auth.CognitoCachingCredentialsProvider
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferListener
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferNetworkLossHandler
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferState
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility
+import com.amazonaws.regions.Region.getRegion
+import com.amazonaws.regions.Regions
+import com.amazonaws.regions.Region
+import com.amazonaws.services.s3.AmazonS3Client
+import com.amazonaws.services.s3.model.CannedAccessControlList
+import com.example.eco.ClassRes.URIPathHelper
 import com.example.eco.R
+import com.example.eco.dataClass.LoginInfo
+import com.google.gson.Gson
+import com.gun0912.tedpermission.PermissionListener
+import com.gun0912.tedpermission.TedPermission
 import kotlinx.android.synthetic.main.activity_setting_account.*
+import kotlinx.android.synthetic.main.fragment_main_view4.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -19,6 +39,7 @@ import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
+import java.io.File
 import java.io.IOException
 
 class SettingAccountActivity : AppCompatActivity() {
@@ -57,6 +78,56 @@ class SettingAccountActivity : AppCompatActivity() {
             if (CheckPassword()){
                 changeAccount()
             }
+        }
+        // 이미지 업로드 (업데이트)
+        upload.setOnClickListener {
+            val uriPathHelper = URIPathHelper()
+            val filePath = uriPathHelper.getPath(this, selectImageUri!!)
+            uploadWithTransferUtility(fileName = "${nameText_settingAccount.text}.jpg", file = File(filePath))
+            uploadImage()
+//            API 호출 email, filename
+        }
+    }
+
+    private fun uploadImage() {
+        CoroutineScope(Dispatchers.Main).launch {
+
+            val api = CoroutineScope(Dispatchers.Default).async {
+                // 보낼 데이터 json으로 만들기
+                val data = "{\n" +
+                        "    \"pic\" : \"${nameText_settingAccount.text}.jpg\"," +
+                        "    \"name\" : \"${nameText_settingAccount.text}\"" +
+                        "}"
+                Log.d("a",data)
+                Log.d("b","${nameText_settingAccount.text}.jpg")
+                Log.d("c","${nameText_settingAccount.text}")
+                val media = "application/json; charset=utf-8".toMediaType();
+                val body = data.toRequestBody(media)
+
+                // 1. 클라이언트 만들기
+                val client = OkHttpClient.Builder().build()
+                // 2. 요청
+                val req = Request.Builder()
+                    .url("https://k3ftvaq975.execute-api.ap-northeast-2.amazonaws.com/member_image_update/")
+                    .put(body)
+                    .build()
+
+                // 3. 응답
+                client.newCall(req).enqueue(object : Callback {
+                    override fun onFailure(call: Call, e: IOException) {
+
+                    }
+
+                    override fun onResponse(call: Call, response: Response) {
+                        // 응답이 오면 메인스레드에서 처리를 진행한다.
+                        CoroutineScope(Dispatchers.Main).launch {
+                            // 회원조회 응답
+                            Log.d("업로드 성공","${response.body!!.string()}")
+                        }
+                    }
+                })
+
+            }.await()
         }
     }
 
@@ -174,5 +245,74 @@ class SettingAccountActivity : AppCompatActivity() {
             9 -> age = "95"
             10 -> age = "105"
         }
+    }
+    fun uploadWithTransferUtility(fileName: String, file: File) {
+
+        val credentialsProvider = CognitoCachingCredentialsProvider(
+            applicationContext,
+            "ap-northeast-2:8a026960-a1e3-4c06-93b4-22bd8f9eeb97", // 자격 증명 풀 ID
+            Regions.AP_NORTHEAST_2 // 리전
+        )
+
+        TransferNetworkLossHandler.getInstance(applicationContext)
+
+        val transferUtility = TransferUtility.builder()
+            .context(applicationContext)
+            .defaultBucket("imagehackerton") // 디폴트 버킷 이름.
+            .s3Client(AmazonS3Client(credentialsProvider, Region.getRegion(Regions.AP_NORTHEAST_2)))
+            .build()
+        /* Store the new created Image file path */
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            tedPermission()
+            return
+        }
+        val uploadObserver = transferUtility.upload("imagehackerton/${fileName}", file, CannedAccessControlList.PublicRead)
+
+        //CannedAccessControlList.PublicRead 읽기 권한 추가
+
+        // Attach a listener to the observer
+        uploadObserver.setTransferListener(object : TransferListener {
+            override fun onStateChanged(id: Int, state: TransferState) {
+                if (state == TransferState.COMPLETED) {
+                    // Handle a completed upload
+                }
+            }
+
+            override fun onProgressChanged(id: Int, current: Long, total: Long) {
+                val done = (((current.toDouble() / total) * 100.0).toInt())
+                Log.d("MYTAG", "UPLOAD - - ID: $id, percent done = $done")
+            }
+
+            override fun onError(id: Int, ex: Exception) {
+                Log.d("MYTAG", "UPLOAD ERROR - - ID: $id - - EX: ${ex.message.toString()}")
+            }
+        })
+
+        // If you prefer to long-poll for updates
+        if (uploadObserver.state == TransferState.COMPLETED) {
+            /* Handle completion */
+
+        }
+    }
+
+    // 위치 권한을 요청하는 함수입니다.
+    private fun tedPermission() {
+        val permissionListener = object : PermissionListener {
+            override fun onPermissionGranted() {}
+            override fun onPermissionDenied(deniedPermissions: ArrayList<String>?) {
+                Toast.makeText(applicationContext, "설정에서 권한을 허가 해주세요.", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+        }
+
+        TedPermission.with(this)
+            .setPermissionListener(permissionListener)
+            .setRationaleMessage("서비스 사용을 위해서 몇가지 권한이 필요합니다.")
+            .setDeniedMessage("[설정] > [권한] 에서 권한을 설정할 수 있습니다.")
+            .setPermissions(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+            )
+            .check()
     }
 }
