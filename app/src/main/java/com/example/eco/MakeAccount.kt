@@ -225,6 +225,4 @@ class MakeAccount : AppCompatActivity() {
         //파일 출력 스트림을 닫는다.
         fileOutputStream.close()
     }
-
-
 }

@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.activity_make_account.*
 import kotlinx.android.synthetic.main.activity_setting_account.*
 import kotlinx.coroutines.CoroutineScope
@@ -30,6 +31,10 @@ class settingAccount : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting_account)
+        val pwd = intent.getStringExtra("pwd")
+        nameText_settingAccount.setText(intent.getStringExtra("name"))
+        pwd1Text_settingAccount.setText(pwd)
+        pwd2Text_settingAccount.setText(pwd)
 
         // 스피너를 할당합니다.
         ArrayAdapter.createFromResource(
@@ -116,11 +121,11 @@ class settingAccount : AppCompatActivity() {
 
     private fun CheckPassword(): Boolean {
 
-        if (passwordText1_MakeAccount.text.toString() != passwordText2_MakeAccount.text.toString()){
+        if (pwd1Text_settingAccount.text.toString() != pwd2Text_settingAccount.text.toString()){
             Toast.makeText(applicationContext, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
             return false
         }
-        if (passwordText1_MakeAccount.text.isEmpty()){
+        if (pwd1Text_settingAccount.text.isEmpty()){
             Toast.makeText(applicationContext, "비밀번호를 입력해 주세요", Toast.LENGTH_SHORT).show()
             return false
         }
@@ -141,7 +146,7 @@ class settingAccount : AppCompatActivity() {
         if (requestCode == GET_GALLERY_IMAGE && resultCode == RESULT_OK && data != null && data.data != null) {
             //이미지 뷰를 해당 이미지로 교환합니다.
             selectImageUri = data.data!!
-            userImageView.setImageURI(selectImageUri)
+            userImageView_settingAccount.setImageURI(selectImageUri)
         }
     }
 

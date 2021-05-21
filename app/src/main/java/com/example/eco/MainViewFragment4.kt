@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_main_view3.*
 import kotlinx.android.synthetic.main.fragment_main_view4.*
 import kotlinx.coroutines.CoroutineScope
@@ -22,6 +23,9 @@ import okhttp3.Response
 import java.io.IOException
 
 class MainViewFragment4 : Fragment() {
+
+    var pwd = ""
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var email = loadFromInnerStorage("userInfoData.txt")
@@ -37,7 +41,13 @@ class MainViewFragment4 : Fragment() {
 
         // 자신의 설정을 변경하는 페이지로 이동합니다.
         settingAccountBtn_fragment4.setOnClickListener {
+            val intent = Intent(activity,settingAccount::class.java)
+//            emailText_fragment4.text = res.email
+//            ageText_fragment4.text = setAge(res.age)
+            intent.putExtra("name",userNameText_fragment4.text)
+            intent.putExtra("pwd",pwd)
 
+            startActivity(intent)
         }
     }
 
@@ -93,6 +103,8 @@ class MainViewFragment4 : Fragment() {
                             val res = Gson().fromJson(rawData2 , LoginInfo::class.java)
                             emailText_fragment4.text = res.email
                             userNameText_fragment4.text = res.name
+                            pwd = res.pswd
+                            Log.d("pwd" , "${pwd}")
                             ageText_fragment4.text = setAge(res.age)
                             DonationPriceText_fragment4.text = res.d_amount
                             if (res.p_group == ""){
