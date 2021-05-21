@@ -25,6 +25,8 @@ import java.io.IOException
 class MainViewFragment4 : Fragment() {
 
     var pwd = ""
+    var donation = ""
+    var partcipantGroup = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,6 +48,8 @@ class MainViewFragment4 : Fragment() {
 //            ageText_fragment4.text = setAge(res.age)
             intent.putExtra("name",userNameText_fragment4.text)
             intent.putExtra("pwd",pwd)
+            intent.putExtra("doantion",donation)
+            intent.putExtra("participant",partcipantGroup)
 
             startActivity(intent)
         }
@@ -104,6 +108,8 @@ class MainViewFragment4 : Fragment() {
                             emailText_fragment4.text = res.email
                             userNameText_fragment4.text = res.name
                             pwd = res.pswd
+                            partcipantGroup = res.p_group
+                            donation = res.d_amount
                             Log.d("pwd" , "${pwd}")
                             ageText_fragment4.text = setAge(res.age)
                             DonationPriceText_fragment4.text = res.d_amount

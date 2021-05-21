@@ -73,9 +73,9 @@ class SettingAccountActivity : AppCompatActivity() {
                         "    \"name\" : \"${name}\",\n" +
                         "    \"pswd\" : \"${password}\",\n" +
                         "    \"age\" : \"${age}\",\n" +
-                        "    \"d_amount\" : \"0\",\n" +
+                        "    \"d_amount\" : \"${intent.getStringExtra("doantion")}\",\n" +
                         "    \"pic\" : \"\",\n" +
-                        "    \"p_group\" : \"\"\n" +
+                        "    \"p_group\" : \"${intent.getStringExtra("participant")}\"\n" +
                         "}"
 
                 val media = "application/json; charset=utf-8".toMediaType();
