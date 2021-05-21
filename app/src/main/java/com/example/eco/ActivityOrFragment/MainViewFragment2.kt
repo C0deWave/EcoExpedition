@@ -19,6 +19,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import okhttp3.*
 import java.io.IOException
+import java.lang.Exception
 
 
 class MainViewFragment2 : Fragment() {
@@ -55,22 +56,26 @@ class MainViewFragment2 : Fragment() {
                         // 응답이 오면 메인스레드에서 처리를 진행한다.
                         CoroutineScope(Dispatchers.Main).launch {
                             //데이터 파싱해서 넣기
-                            var da = response.body!!.string()
-                            var da2 = da.substring(31, da.length-4)
-                            Log.d("파싱데이터","${da2}")
-                            val data = Gson().fromJson(da2, GroupListData::class.java)
-                            data.forEach { groupListDataItem ->
-                                grouplist.add(BoardData(group_name = groupListDataItem.group_name,
-                                        master_name = groupListDataItem.master_name,
-                                        open_date = groupListDataItem.open_date,
-                                        intro = groupListDataItem.intro,
-                                        group_pic = groupListDataItem?.group_pic,
-                                        meeting_date = groupListDataItem.meeting_date,
-                                        participant = groupListDataItem.participant.toString()
-                                        ))
+                            try {
+                                var da = response.body!!.string()
+                                var da2 = da.substring(31, da.length - 4)
+                                Log.d("파싱데이터", "${da2}")
+                                val data = Gson().fromJson(da2, GroupListData::class.java)
+                                data.forEach { groupListDataItem ->
+                                    grouplist.add(BoardData(group_name = groupListDataItem.group_name,
+                                            master_name = groupListDataItem.master_name,
+                                            open_date = groupListDataItem.open_date,
+                                            intro = groupListDataItem.intro,
+                                            group_pic = groupListDataItem?.group_pic,
+                                            meeting_date = groupListDataItem.meeting_date,
+                                            participant = groupListDataItem.participant.toString()
+                                    ))
+                                }
+                                personal_recyclerView.adapter = BulitinBoardItemAdapter(grouplist)
+                                personal_recyclerView.layoutManager = LinearLayoutManager(activity);
+                            }catch (e : Exception){
+                                Log.d("err","${e.stackTrace}")
                             }
-                            personal_recyclerView.adapter = BulitinBoardItemAdapter(grouplist)
-                            personal_recyclerView.layoutManager = LinearLayoutManager(activity);
                         }
                     }
                 })
