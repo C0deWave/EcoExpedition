@@ -58,9 +58,8 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
         masterName_detailBoard.text = intent.getStringExtra("master_name")
         openDate_detailBoard.text = intent.getStringExtra("open_date")
         intro_detailBoard.text = intent.getStringExtra("intro")
-
-        meetingDate_detailBoard.text = intent.getStringArrayListExtra("meeting_date").toString()
-        participant_detailBoard.text = intent.getStringArrayListExtra("participant").toString()
+        meetingDate_detailBoard.text = intent.getStringExtra("meeting_date")
+        participant_detailBoard.text = intent.getStringExtra("participant")
 
         participantbtn_detailBoard.setOnClickListener {
             addPartcipant()

@@ -36,9 +36,8 @@ class BoardItem(itemView  : View) : RecyclerView.ViewHolder(itemView){
             intent.putExtra("open_date",boardData.open_date)
             intent.putExtra("intro",boardData.intro)
             intent.putExtra("group_pic",boardData.group_pic)
-            intent.putStringArrayListExtra("meeting_date",boardData.meeting_date)
-            intent.putStringArrayListExtra("participant",boardData.participant)
-            intent.putExtra("group_id",boardData.group_id)
+            intent.putExtra("meeting_date",boardData.meeting_date)
+            intent.putExtra("participant",boardData.participant)
             itemView.context.startActivity(intent)
         }
     }
