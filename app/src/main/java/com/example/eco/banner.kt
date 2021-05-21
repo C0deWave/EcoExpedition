@@ -18,7 +18,9 @@ import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
+import java.io.FileInputStream
 import java.io.IOException
+import java.lang.Exception
 
 class banner : AppCompatActivity() {
 
@@ -117,8 +119,19 @@ class banner : AppCompatActivity() {
     //내부 저장소 파일의 텍스트를 불러온다.
     fun loadFromInnerStorage(filename: String): String? {
         //내부 저장소의 전달된 이름의 파일입력 스트림을 가져온다.
-        val fileInputStream = openFileInput(filename)
-        //파일의 저장된 내용을 읽어 String형태로 가져온다.
-        return fileInputStream?.reader()?.readText()
+        try {
+            val fileInputStream :  FileInputStream? = openFileInput(filename)
+            if (fileInputStream == null){
+                Log.d("파일스트림","null")
+                return ""
+            }else{
+                //파일의 저장된 내용을 읽어 String형태로 가져온다.
+                return fileInputStream?.reader()?.readText()
+            }
+        }catch (e : Exception){
+            Log.d("err","${e.stackTrace}")
+        }
+
+        return ""
     }
 }
