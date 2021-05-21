@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".detail_BulitInBoard">
+
+    <TextView
+        android:id="@+id/groupName_detailBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="5dp"
+        android:text="참가 그룹 명"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/masterName_detailBoard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/masterName_detailBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="17dp"
+        android:text="그룹장 이름"
+        app:layout_constraintBottom_toTopOf="@+id/groupPicture_detailBoard"
+        app:layout_constraintStart_toStartOf="@+id/groupName_detailBoard"
+        app:layout_constraintTop_toBottomOf="@+id/groupName_detailBoard" />
+
+    <ImageView
+        android:id="@+id/groupPicture_detailBoard"
+        android:layout_width="418dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginBottom="224dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/banner2" />
+
+    <TextView
+        android:id="@+id/intro_detailBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="26dp"
+        android:text="소개글1 \n 소개글2 \n 소개글3"
+        app:layout_constraintBottom_toTopOf="@+id/meetingDate_detailBoard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/groupPicture_detailBoard" />
+
+    <TextView
+        android:id="@+id/meetingDate_detailBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="27dp"
+        android:text="최근 일정"
+        app:layout_constraintBottom_toTopOf="@+id/participant_detailBoard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intro_detailBoard" />
+
+    <TextView
+        android:id="@+id/participant_detailBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="194dp"
+        android:text="참가자 이름"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meetingDate_detailBoard" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="149dp"
+        android:layout_marginBottom="87dp"
+        android:text="참가하기"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/groupPicture_detailBoard" />
+
+    <TextView
+        android:id="@+id/openDate_detailBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="19dp"
+        android:text="개설일"
+        app:layout_constraintBottom_toTopOf="@+id/groupPicture_detailBoard"
+        app:layout_constraintEnd_toEndOf="@+id/groupPicture_detailBoard" />
+</androidx.constraintlayout.widget.ConstraintLayout>
