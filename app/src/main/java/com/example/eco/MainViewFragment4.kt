@@ -17,7 +17,6 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
 import java.io.IOException
@@ -27,6 +26,9 @@ class MainViewFragment4 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         var email = loadFromInnerStorage("userInfoData.txt")
         Log.d("email" , "${email}")
+        if (email != null) {
+            setData(email)
+        }
 
         //로그아웃 기능 구현
         logoutBtn_fragment4.setOnClickListener {
@@ -42,17 +44,63 @@ class MainViewFragment4 : Fragment() {
         startActivity(intent)
     }
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_main_view4, container, false)
+    }
+
+    //로그인 기능을 구현합니다.
+    fun setData(email: String){
+        CoroutineScope(Dispatchers.Main).launch {
+
+            val api = CoroutineScope(Dispatchers.Default).async {
+                // 보낼 데이터 json으로 만들기
+                val data = "{\n" +
+                        "    \"email\" : \"${email}\"" +
+                        "}"
+
+                val media = "application/json; charset=utf-8".toMediaType();
+                val body = data.toRequestBody(media)
+
+                // 1. 클라이언트 만들기
+                val client = OkHttpClient.Builder().build()
+                // 2. 요청
+                val req = Request.Builder()
+                        .url("https://p7s3gkde6f.execute-api.ap-northeast-2.amazonaws.com/member_get/")
+                        .put(body)
+                        .build()
+
+                // 3. 응답
+                client.newCall(req).enqueue(object : Callback {
+                    override fun onFailure(call: Call, e: IOException) {
+
+                    }
+
+                    override fun onResponse(call: Call, response: Response) {
+                        // 응답이 오면 메인스레드에서 처리를 진행한다.
+                        CoroutineScope(Dispatchers.Main).launch {
+                            // 회원조회 응답
+                            val data = response.body!!.string()
+                            var rawData2 = data.substring(31,data.length-4)
+                            val res = Gson().fromJson(rawData2 , LoginInfo::class.java)
+                            emailText_fragment4.text = res.email
+                            userNameText_fragment4.text = res.name
+                            ageText_fragment4.text = setAge(res.age)
+                            DonationPriceText_fragment4.text = res.d_amount
+                            if (res.p_group == ""){
+                                groupListText_fragment4.text = "아직 참가중인 모임이 없습니다.\n모임에 참여해 환경운동을 해보는건 어떨까요?"
+                            }else{
+                                groupListText_fragment4.text = res.p_group
+                            }
+                        }
+                    }
+                })
+
+            }.await()
+        }
     }
 
     //내부 저장소 파일의 텍스트를 불러온다.
@@ -72,5 +120,22 @@ class MainViewFragment4 : Fragment() {
         fileOutputStream?.write(text.toByteArray())
         //파일 출력 스트림을 닫는다.
         fileOutputStream?.close()
+    }
+
+    private fun setAge(p2: String): String {
+        when(p2){
+             "5" -> return "10대"
+            "15" -> return "10대"
+            "25" -> return "20대"
+            "35" -> return "30대"
+            "45" -> return "40대"
+            "55" -> return "50대"
+            "65" -> return "60대"
+            "75" -> return "70대"
+            "85" -> return "80대"
+            "95" -> return "90대"
+            "105" -> return "100대"
+        }
+        return ""
     }
 }
