@@ -101,16 +101,16 @@ class MakeAccount : AppCompatActivity() {
     private fun setAge(p2: Int) {
         when(p2){
             0 -> age = "5"
-            0 -> age = "15"
-            0 -> age = "25"
-            0 -> age = "35"
-            0 -> age = "45"
-            0 -> age = "55"
-            0 -> age = "65"
-            0 -> age = "75"
-            0 -> age = "85"
-            0 -> age = "95"
-            0 -> age = "105"
+            1 -> age = "15"
+            2 -> age = "25"
+            3 -> age = "35"
+            4 -> age = "45"
+            5 -> age = "55"
+            6 -> age = "65"
+            7 -> age = "75"
+            8 -> age = "85"
+            9 -> age = "95"
+            10 -> age = "105"
         }
     }
 
