@@ -1,5 +1,6 @@
 package com.example.eco
 
+import android.content.Context
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP
 import android.graphics.Color
@@ -35,6 +36,15 @@ class MakeAccount : AppCompatActivity() {
     val GET_GALLERY_IMAGE = 200;    // 안드로이드에서 이미지를 가져오기 상태 표시 위한 전역 변수
     var selectImageUri: Uri? = null // 선택된 이미지의 Uri
     var age = ""
+
+
+    //내부 저장소 파일의 텍스트를 불러온다.
+    fun loadFromInnerStorage(filename: String):String{
+        //내부 저장소의 전달된 이름의 파일입력 스트림을 가져온다.
+        val fileInputStream = openFileInput(filename)
+        //파일의 저장된 내용을 읽어 String형태로 가져온다.
+        return fileInputStream.reader().readText()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -144,6 +154,7 @@ class MakeAccount : AppCompatActivity() {
                         CoroutineScope(Dispatchers.Main).launch {
                             Toast.makeText(applicationContext, "회원가입성공", Toast.LENGTH_SHORT).show()
                             val intent = Intent(applicationContext, MainActivity::class.java)
+                            saveToInnerStorage("${email}","userInfoData.txt")
                             startActivity(intent)
                         }
                     }
@@ -199,4 +210,18 @@ class MakeAccount : AppCompatActivity() {
             userImageView.setImageURI(selectImageUri)
         }
     }
+
+
+    fun saveToInnerStorage(text:String, filename:String){
+        //내부저장소의 전달된 파일이름의 파일 출력스트림을 가져온다.
+        //MODE_APPEND = 파일에 기존의 내용 이후에 붙이는 모드입니다.
+        //MODE_PRIVATE 앱 전용으로 만들어 다른 앱에서는 접근 불가, 이미 파일이 있는 경우 기존 파일에 덮어씁니다.
+        val fileOutputStream = openFileOutput(filename, Context.MODE_PRIVATE)
+        //출력 스트림에 text를 바이트로 전환하여 write한다.
+        fileOutputStream.write(text.toByteArray())
+        //파일 출력 스트림을 닫는다.
+        fileOutputStream.close()
+    }
+
+
 }
