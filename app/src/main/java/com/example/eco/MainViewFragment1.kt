@@ -35,41 +35,8 @@ class MainViewFragment1 : Fragment() {
             val intent = Intent(context, WriteBoardPage::class.java)
             startActivity(intent)
         }
-        // API 네트워크 통신을 위한 예제
-//        coroutine()
     }
 
-    // API 네트워크 통신을 위한 예제
-//    private fun coroutine() {
-//        CoroutineScope(Dispatchers.Main).launch {
-//            val api = CoroutineScope(Dispatchers.Default).async {
-//                //네트워크
-//                getHtmlStr()
-//            }.await()
-//        }
-//    }
-
-//    // API 네트워크 통신을 위한 예제
-//    private fun getHtmlStr(){
-//        // 1. 클라이언트 만들기
-//        val client = OkHttpClient.Builder().build()
-//        // 2. 요청
-//        val req = Request.Builder().url("http://apis.data.go.kr/B552584/MsrstnInfoInqireSvc/getNearbyMsrstnList?serviceKey=gGhynriCFrtswJiVVWDI9T3Q%2B1Q%2FftEzDkISmGi7jWjL0knS%2BXWeI2MIOzWNxxvycoI%2FlDd1%2BDmGp7Az4FZeZA%3D%3D&returnType=json&tmX=244148.546388&tmY=412423.75772&ver=1.0")
-//                .build()
-//        // 3. 응답
-//        client.newCall(req).enqueue(object : Callback{
-//            override fun onFailure(call: Call, e: IOException) {
-//
-//            }
-//
-//            override fun onResponse(call: Call, response: Response) {
-//                CoroutineScope(Dispatchers.Main).launch {
-//                    val data = Gson().fromJson(response.body!!.string() , ObserveCenterData::class.java)
-//                    testText.text = data.response.body.items[0].addr
-//                }
-//            }
-//        })
-//    }
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,

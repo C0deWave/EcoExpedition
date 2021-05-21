@@ -95,4 +95,34 @@
         android:text="개설일"
         app:layout_constraintBottom_toTopOf="@+id/groupPicture_detailBoard"
         app:layout_constraintEnd_toEndOf="@+id/groupPicture_detailBoard" />
+
+    <TextView
+        android:id="@+id/dustTextView_detaailBuiltin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="32dp"
+        android:text="미세먼지 농도"
+        app:layout_constraintEnd_toStartOf="@+id/openDate_detailBoard"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="18dp"
+        android:text="측정소 위치"
+        app:layout_constraintEnd_toEndOf="@+id/dustTextView_detaailBuiltin"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/observeCenterTextView_detailBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:text="(측정소 이름)"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
