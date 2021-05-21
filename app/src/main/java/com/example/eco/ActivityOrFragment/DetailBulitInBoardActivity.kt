@@ -2,6 +2,7 @@ package com.example.eco.ActivityOrFragment
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
@@ -13,6 +14,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.eco.R
 import com.example.eco.dataClass.DustInfo
+import com.example.eco.dataClass.LoginInfo
 import com.example.eco.dataClass.ObserveCenterData
 import com.example.eco.dataClass.TmLocation
 import com.google.android.gms.maps.model.LatLng
@@ -20,14 +22,17 @@ import com.google.gson.Gson
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
 import kotlinx.android.synthetic.main.activity_detail__bulit_in_board.*
+import kotlinx.android.synthetic.main.activity_make_account.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import okhttp3.Call
 import okhttp3.Callback
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
 import java.io.IOException
 
@@ -58,17 +63,106 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
         participant_detailBoard.text = intent.getStringArrayListExtra("participant").toString()
 
         participantbtn_detailBoard.setOnClickListener {
-
+            addPartcipant()
         }
 
         //위도 경도 값이 퍼미션이 허가되지 않았을 때
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             tedPermission()
+            getTmLocation()
             return
+        }else{
+            getTmLocation()
         }
-        getTmLocation()
     }
 
+    private fun addPartcipant() {
+        //1. 내 참가 그룹에 그룹명을 추가합니다.
+        //2. 그룹 리스트에 내 이름을 추가합니다.
+        addGroupInfo()
+    }
+
+    private fun addGroupInfo() {
+        CoroutineScope(Dispatchers.Main).launch {
+
+            val api = CoroutineScope(Dispatchers.Default).async {
+                // 보낼 데이터 json으로 만들기
+                val data = "{\n" +
+                        "    \"email\" : \"${loadFromInnerStorage("userInfoData.txt")}\"" +
+                        "}"
+
+                val media = "application/json; charset=utf-8".toMediaType();
+                val body = data.toRequestBody(media)
+
+                // 1. 클라이언트 만들기
+                val client = OkHttpClient.Builder().build()
+                // 2. 요청
+                val req = Request.Builder()
+                        .url("https://p7s3gkde6f.execute-api.ap-northeast-2.amazonaws.com/member_get/")
+                        .put(body)
+                        .build()
+
+                // 3. 응답
+                client.newCall(req).enqueue(object : Callback {
+                    override fun onFailure(call: Call, e: IOException) {
+
+                    }
+
+                    override fun onResponse(call: Call, response: Response) {
+                        // 응답이 오면 메인스레드에서 처리를 진행한다.
+                        CoroutineScope(Dispatchers.Main).launch {
+                            // 회원조회 응답
+                            val data = response.body!!.string()
+                            var rawData2 = data.substring(31,data.length-4)
+                            val res = Gson().fromJson(rawData2 , LoginInfo::class.java)
+                            updateGroupData(res)
+                        }
+                    }
+                })
+
+            }.await()
+        }
+    }
+
+    private fun updateGroupData(res: LoginInfo) {
+        CoroutineScope(Dispatchers.Main).launch {
+            val api = CoroutineScope(Dispatchers.Default).async {
+
+                val pgroup = res.p_group + ","+ groupName_detailBoard.text
+                // 보낼 데이터 json으로 만들기
+                val data = "{\n" +
+                        "    \"email\" : \"${res.email}\",\n" +
+                        "    \"name\" : \"${res.name}\",\n" +
+                        "    \"pswd\" : \"${res.pswd}\",\n" +
+                        "    \"age\" : \"${res.age}\",\n" +
+                        "    \"d_amount\" : \"0\",\n" +
+                        "    \"pic\" : \"\",\n" +
+                        "    \"p_group\" : \"${pgroup}\"\n" +
+                        "}"
+
+                val media = "application/json; charset=utf-8".toMediaType();
+                val body = data.toRequestBody(media)
+
+                // 1. 클라이언트 만들기
+                val client = OkHttpClient.Builder().build()
+                // 2. 요청
+                val req = Request.Builder()
+                        .url("https://3zz6r8wnma.execute-api.ap-northeast-2.amazonaws.com/member_insert")
+                        .post(body)
+                        .build()
+                // 3. 응답
+                client.newCall(req).enqueue(object : Callback {
+                    override fun onFailure(call: Call, e: IOException) { }
+                    override fun onResponse(call: Call, response: Response) {
+                        // 응답이 오면 메인스레드에서 처리를 진행한다.
+                        CoroutineScope(Dispatchers.Main).launch {
+                            Toast.makeText(applicationContext, "그룹가입성공", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                })
+            }.await()
+        }
+    }
 
 
     private fun getTmLocation() {
@@ -221,5 +315,13 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                 return "데이터 없음"
             }
         }
+    }
+
+    //내부 저장소 파일의 텍스트를 불러온다.
+    fun loadFromInnerStorage(filename: String): String? {
+        //내부 저장소의 전달된 이름의 파일입력 스트림을 가져온다.
+        val fileInputStream = openFileInput(filename)
+        //파일의 저장된 내용을 읽어 String형태로 가져온다.
+        return fileInputStream?.reader()?.readText()
     }
 }

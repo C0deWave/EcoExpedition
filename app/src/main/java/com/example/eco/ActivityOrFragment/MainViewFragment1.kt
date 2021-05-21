@@ -18,8 +18,8 @@ class MainViewFragment1 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var listArray:MutableList<BoardData> = mutableListOf(BoardData("그룹이름 : wnaud","주인이름",
-                "개설일","소개글","사진", arrayListOf("1일","2일"),"그룹 키값", arrayListOf("참가자1","참가자2")))
+        var listArray:MutableList<BoardData> = mutableListOf(BoardData("ss","aa",
+                "2002-01-03","d","", arrayListOf("1","2일"),"ssaa", arrayListOf("참가자1","참가자2")))
 
         companyBoardRecyclerView_fragment1.adapter = BulitinBoardItemAdapter(listArray)
         companyBoardRecyclerView_fragment1.layoutManager = LinearLayoutManager(activity);
