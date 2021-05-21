@@ -14,12 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Eco"
         android:usesCleartextTraffic="true">
-        <activity android:name=".WriteBoardPage"></activity>
+        <activity android:name=".settingAccount"></activity>
+        <activity android:name=".WriteBoardPage" />
         <activity android:name=".detail_BulitInBoard" />
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".MakeAccount" />
-        <activity android:name=".banner" >
+        <activity android:name=".banner">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

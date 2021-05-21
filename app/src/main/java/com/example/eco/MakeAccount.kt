@@ -63,8 +63,8 @@ class MakeAccount : AppCompatActivity() {
             spinner.adapter = adapter
             var listener = SpinnerListener()
             spinner.onItemSelectedListener = listener
-
         }
+
         // 뒤로가기 버튼을 눌렀을때
         backButton_makeAccount.setOnClickListener {
             val intent = Intent(applicationContext, banner::class.java)
@@ -207,6 +207,9 @@ class MakeAccount : AppCompatActivity() {
         if (requestCode == GET_GALLERY_IMAGE && resultCode == RESULT_OK && data != null && data.data != null) {
             //이미지 뷰를 해당 이미지로 교환합니다.
             selectImageUri = data.data!!
+            val uriPathHelper = URIPathHelper()
+            val filePath = uriPathHelper.getPath(this, selectImageUri!!)
+            Log.d("이미지 URI", filePath.toString())
             userImageView.setImageURI(selectImageUri)
         }
     }

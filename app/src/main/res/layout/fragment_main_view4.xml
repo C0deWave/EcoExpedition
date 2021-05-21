@@ -59,7 +59,7 @@
             app:layout_constraintTop_toBottomOf="@+id/userImageView" />
 
         <ImageView
-            android:id="@+id/imageView11"
+            android:id="@+id/settingAccountBtn_fragment4"
             android:layout_width="34dp"
             android:layout_height="34dp"
             android:layout_marginTop="16dp"

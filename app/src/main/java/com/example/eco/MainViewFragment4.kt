@@ -34,6 +34,11 @@ class MainViewFragment4 : Fragment() {
         logoutBtn_fragment4.setOnClickListener {
             logout()
         }
+
+        // 자신의 설정을 변경하는 페이지로 이동합니다.
+        settingAccountBtn_fragment4.setOnClickListener {
+
+        }
     }
 
     private fun logout() {
