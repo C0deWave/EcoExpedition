@@ -151,7 +151,7 @@ class MakeAccountActivity : AppCompatActivity() {
                         CoroutineScope(Dispatchers.Main).launch {
                             Toast.makeText(applicationContext, "회원가입성공", Toast.LENGTH_SHORT).show()
                             val intent = Intent(applicationContext, MainActivity::class.java)
-                            saveToInnerStorage("${email}","userInfoData.txt")
+                            saveToInnerStorage("${name}","userInfoData.txt")
                             startActivity(intent)
                         }
                     }

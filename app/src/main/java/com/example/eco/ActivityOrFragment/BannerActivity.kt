@@ -66,7 +66,7 @@ class BannerActivity : AppCompatActivity() {
             val api = CoroutineScope(Dispatchers.Default).async {
                 // 보낼 데이터 json으로 만들기
                 val data = "{\n" +
-                        "    \"email\" : \"${id}\"" +
+                        "    \"name\" : \"${id}\"" +
                         "}"
 
                 val media = "application/json; charset=utf-8".toMediaType();

@@ -19,7 +19,7 @@
             android:layout_marginEnd="32dp"
             android:background="@drawable/solid_button"
             android:ems="10"
-            android:hint="이메일"
+            android:hint="이름을 입력해주세요."
             android:inputType="textEmailAddress"
             android:paddingLeft="20dp"
             android:textSize="18dp"

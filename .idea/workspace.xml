@@ -30,15 +30,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bc86a66-5a99-4a61-89ed-360ebfa53a8b" name="Default Changelist" comment="2021.05.21 모임생성 구현&#10;- api 연동 완료&#10;- 오늘 날짜 추가 완료">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/GroupListData.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/GroupListDataItem.kt" afterDir="false" />
+    <list default="true" id="2bc86a66-5a99-4a61-89ed-360ebfa53a8b" name="Default Changelist" comment="2021.05.22 계정 정보 변경 구현v1.2&#10;- 참가 그룹 리스트와 총 기부금액 초기화 에러 수정&#10;- 이미지 변경을 위한 버튼 제작">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/DetailBulitInBoardActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/DetailBulitInBoardActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment1.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment1.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/BannerActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/BannerActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment2.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/adapter/BulitinBoardItemAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/adapter/BulitinBoardItemAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/BoardData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/BoardData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment4.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment4.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MakeAccountActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MakeAccountActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_write_board_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_write_board_page.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,7 +302,28 @@
       <option name="project" value="LOCAL" />
       <updated>1621608943279</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="2021.05.21 개인 게시판 리스트 구현&#10;- api 연동 완료">
+      <created>1621613301248</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1621613301248</updated>
+    </task>
+    <task id="LOCAL-00017" summary="2021.05.21 상세게시판 구현v2.1&#10;- api 연동 완료&#10;- 그룹 참가하기 기능 구현&#10;&#10;+&#10;상세게시판 연동 에러 해결">
+      <created>1621613332031</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1621613332031</updated>
+    </task>
+    <task id="LOCAL-00018" summary="2021.05.22 계정 정보 변경 구현v1.2&#10;- 참가 그룹 리스트와 총 기부금액 초기화 에러 수정&#10;- 이미지 변경을 위한 버튼 제작">
+      <created>1621614810640</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1621614810640</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -346,7 +366,10 @@
     <MESSAGE value="2021.05.21 상세게시판 구현v2.1&#10;- api 연동 완료&#10;&#10;+&#10;- 그룹 참가하기 기능 구현" />
     <MESSAGE value="2021.05.21 계정 정보 변경 구현v1.1&#10;+&#10;- 참가 그룹 리스트와 총 기부금액 초기화 에러 수정" />
     <MESSAGE value="2021.05.21 모임생성 구현&#10;- api 연동 완료&#10;- 오늘 날짜 추가 완료" />
-    <option name="LAST_COMMIT_MESSAGE" value="2021.05.21 모임생성 구현&#10;- api 연동 완료&#10;- 오늘 날짜 추가 완료" />
+    <MESSAGE value="2021.05.21 개인 게시판 리스트 구현&#10;- api 연동 완료" />
+    <MESSAGE value="2021.05.21 상세게시판 구현v2.1&#10;- api 연동 완료&#10;- 그룹 참가하기 기능 구현&#10;&#10;+&#10;상세게시판 연동 에러 해결" />
+    <MESSAGE value="2021.05.22 계정 정보 변경 구현v1.2&#10;- 참가 그룹 리스트와 총 기부금액 초기화 에러 수정&#10;- 이미지 변경을 위한 버튼 제작" />
+    <option name="LAST_COMMIT_MESSAGE" value="2021.05.22 계정 정보 변경 구현v1.2&#10;- 참가 그룹 리스트와 총 기부금액 초기화 에러 수정&#10;- 이미지 변경을 위한 버튼 제작" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2946" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1621563169365">
@@ -397,33 +420,33 @@
     </state>
     <state x="2559" y="202" key="Github.UntrackedFilesDialog/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621515667669" />
     <state x="685" y="196" key="Github.UntrackedFilesDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1621477779157" />
-    <state width="1246" height="286" key="GridCell.Tab.0.bottom" timestamp="1621612784053">
+    <state width="1242" height="286" key="GridCell.Tab.0.bottom" timestamp="1621614831432">
       <screen x="1920" y="25" width="1792" height="1095" />
     </state>
     <state width="932" height="274" key="GridCell.Tab.0.bottom/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621233936150" />
     <state width="1368" height="273" key="GridCell.Tab.0.bottom/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202724" />
-    <state width="1246" height="286" key="GridCell.Tab.0.bottom/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621612784053" />
+    <state width="1242" height="286" key="GridCell.Tab.0.bottom/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621614831432" />
     <state width="955" height="274" key="GridCell.Tab.0.bottom/0.25.1920.1055@0.25.1920.1055" timestamp="1621176536334" />
-    <state width="1246" height="286" key="GridCell.Tab.0.center" timestamp="1621612784052">
+    <state width="1242" height="286" key="GridCell.Tab.0.center" timestamp="1621614831432">
       <screen x="1920" y="25" width="1792" height="1095" />
     </state>
     <state width="932" height="274" key="GridCell.Tab.0.center/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621233936149" />
     <state width="1368" height="273" key="GridCell.Tab.0.center/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202723" />
-    <state width="1246" height="286" key="GridCell.Tab.0.center/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621612784052" />
+    <state width="1242" height="286" key="GridCell.Tab.0.center/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621614831432" />
     <state width="955" height="274" key="GridCell.Tab.0.center/0.25.1920.1055@0.25.1920.1055" timestamp="1621176536333" />
-    <state width="1246" height="286" key="GridCell.Tab.0.left" timestamp="1621612784052">
+    <state width="1242" height="286" key="GridCell.Tab.0.left" timestamp="1621614831432">
       <screen x="1920" y="25" width="1792" height="1095" />
     </state>
     <state width="932" height="274" key="GridCell.Tab.0.left/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621233936149" />
     <state width="1368" height="273" key="GridCell.Tab.0.left/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202723" />
-    <state width="1246" height="286" key="GridCell.Tab.0.left/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621612784052" />
+    <state width="1242" height="286" key="GridCell.Tab.0.left/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621614831432" />
     <state width="955" height="274" key="GridCell.Tab.0.left/0.25.1920.1055@0.25.1920.1055" timestamp="1621176536333" />
-    <state width="1246" height="286" key="GridCell.Tab.0.right" timestamp="1621612784052">
+    <state width="1242" height="286" key="GridCell.Tab.0.right" timestamp="1621614831432">
       <screen x="1920" y="25" width="1792" height="1095" />
     </state>
     <state width="932" height="274" key="GridCell.Tab.0.right/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621233936149" />
     <state width="1368" height="273" key="GridCell.Tab.0.right/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202723" />
-    <state width="1246" height="286" key="GridCell.Tab.0.right/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621612784052" />
+    <state width="1242" height="286" key="GridCell.Tab.0.right/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621614831432" />
     <state width="955" height="274" key="GridCell.Tab.0.right/0.25.1920.1055@0.25.1920.1055" timestamp="1621176536333" />
     <state x="2608" y="219" key="RollbackChangesDialog" timestamp="1621514904909">
       <screen x="1920" y="25" width="1792" height="1095" />
@@ -435,10 +458,10 @@
     </state>
     <state x="337" y="101" key="SettingsEditor/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621235327844" />
     <state x="2235" y="104" key="SettingsEditor/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621515279874" />
-    <state x="2316" y="246" key="Vcs.Push.Dialog.v2" timestamp="1621608949263">
+    <state x="2316" y="246" key="Vcs.Push.Dialog.v2" timestamp="1621614822426">
       <screen x="1920" y="25" width="1792" height="1095" />
     </state>
-    <state x="2316" y="246" key="Vcs.Push.Dialog.v2/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621608949263" />
+    <state x="2316" y="246" key="Vcs.Push.Dialog.v2/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621614822426" />
     <state x="2872" y="332" key="chooseDestDirectoryDialog" timestamp="1621347949544">
       <screen x="1920" y="25" width="1792" height="1095" />
     </state>

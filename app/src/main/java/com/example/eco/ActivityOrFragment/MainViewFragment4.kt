@@ -30,10 +30,10 @@ class MainViewFragment4 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var email = loadFromInnerStorage("userInfoData.txt")
-        Log.d("email" , "${email}")
-        if (email != null) {
-            setData(email)
+        var name = loadFromInnerStorage("userInfoData.txt")
+        Log.d("name" , "${name}")
+        if (name != null) {
+            setData(name)
         }
 
         //로그아웃 기능 구현
@@ -72,13 +72,13 @@ class MainViewFragment4 : Fragment() {
     }
 
     //로그인 기능을 구현합니다.
-    fun setData(email: String){
+    fun setData(name: String){
         CoroutineScope(Dispatchers.Main).launch {
 
             val api = CoroutineScope(Dispatchers.Default).async {
                 // 보낼 데이터 json으로 만들기
                 val data = "{\n" +
-                        "    \"email\" : \"${email}\"" +
+                        "    \"name\" : \"${name}\"" +
                         "}"
 
                 val media = "application/json; charset=utf-8".toMediaType();
