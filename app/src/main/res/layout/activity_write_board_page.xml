@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/masterName_writeBoard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -74,7 +74,7 @@
         android:layout_marginBottom="252dp"
         android:text="모임장 이름"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/makeGroupBtn_writeboard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -86,12 +86,12 @@
         android:layout_marginBottom="13dp"
         android:text="모임 간략 소개"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/introText_writeBoard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/groupNameText_writeBoard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -106,7 +106,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/makeGroupBtn_writeboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
@@ -127,7 +127,7 @@
         app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/introText_writeBoard"
         android:layout_width="379dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
