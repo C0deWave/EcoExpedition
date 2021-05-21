@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config>
+        <device id="pixel" />
+        <device id="pixel_2" />
+      </config>
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2bc86a66-5a99-4a61-89ed-360ebfa53a8b" name="Default Changelist" comment="2021.05.21 회원가입과 로그인 및 배너v1.2&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현&#10;- 일반 로그인 구현&#10;- 자동 로그인 구현&#10;- 로그아웃 구현&#10;- 로그아웃시 뒤로가기를 이용한 메인으로 들어가기 방지&#10;- 스피너에서 나이 지정시 에러 해결&#10;&#10;+&#10;이미지 선택기능 차후로 변경">
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/BoardData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/BoardData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/Body.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/Body.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/BodyX.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/BodyX.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/BulitinBoardItemAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/adapter/BulitinBoardItemAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/Document.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/Document.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/Donation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/Donation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/DustInfo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/DustInfo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/Header.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/Header.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/HeaderX.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/HeaderX.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/Item.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/Item.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ItemX.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/ItemX.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/LoginFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/LoginFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/LoginInfo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/LoginInfo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/LoginSelectFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/LoginSelectFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/MainViewFragment1.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment1.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/MainViewFragment2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment2.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/MainViewFragment3.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment3.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/MainViewFragment4.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment4.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/MakeAccount.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MakeAccountActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/Meta.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/Meta.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ObserveCenterData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/ObserveCenterData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/PageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/adapter/PageAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/Response.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/Response.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ResponseX.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/ResponseX.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/TmLocation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/TmLocation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/URIPathHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ClassRes/URIPathHelper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ViewPagerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/adapter/ViewPagerAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/WriteBoardPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/WriteBoardPageActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/banner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/BannerActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/detail_BulitInBoard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/DetailBulitInBoardActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/settingAccount.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/SettingAccountActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_banner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_banner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail__bulit_in_board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail__bulit_in_board.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_make_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_make_account.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_account.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_write_board_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_write_board_page.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login_select.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login_select.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view4.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3_API_30]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="resourceFile" />
+        <option value="layoutResourceFile" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1sWAYjhJA81rDwV4DFRgX4sZsrv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.eco.ActivityOrFragment" />
+      <recent name="com.example.eco.ClassRes" />
+      <recent name="com.example.eco.adapter" />
+      <recent name="com.example.eco.dataClass" />
+    </key>
+    <key name="android.template.779563364">
+      <recent name="com.example.eco" />
+    </key>
+    <key name="android.template.-1131069813">
+      <recent name="com.example.eco" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/font" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/font" />
+    </key>
+    <key name="android.template.-2054572219">
+      <recent name="com.example.eco" />
+    </key>
+    <key name="android.template.-727032002">
+      <recent name="com.example.eco" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="eco.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2bc86a66-5a99-4a61-89ed-360ebfa53a8b" name="Default Changelist" comment="" />
+      <created>1620978022097</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620978022097</updated>
+    </task>
+    <task id="LOCAL-00001" summary="2021.05.21 메인화면과 네비게이션뷰 구현">
+      <created>1621557760637</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1621557760637</updated>
+    </task>
+    <task id="LOCAL-00002" summary="2021.05.21 상세게시판 구현 및 위치기반 미세먼지단계 표시기능 구현">
+      <created>1621572075502</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1621572075502</updated>
+    </task>
+    <task id="LOCAL-00003" summary="2021.05.21 회원가입과 로그인 및 배너v1.1&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현">
+      <created>1621577101478</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1621577101478</updated>
+    </task>
+    <task id="LOCAL-00004" summary="2021.05.21 회원가입과 로그인 및 배너v1.2&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현&#10;&#10;+&#10;- 일반 로그인 구현&#10;- 자동 로그인 구현&#10;- 로그아웃 구현&#10;- 로그아웃시 뒤로가기를 이용한 메인으로 들어가기 방지">
+      <created>1621584889508</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1621584889508</updated>
+    </task>
+    <task id="LOCAL-00005" summary="2021.05.21 계정 확인창 구현&#10;- 자신의 이메일을 기준으로 자신의 정보를 보여줌">
+      <created>1621586977154</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1621586977154</updated>
+    </task>
+    <task id="LOCAL-00006" summary="2021.05.21 회원가입과 로그인 및 배너v1.2&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현&#10;- 일반 로그인 구현&#10;- 자동 로그인 구현&#10;- 로그아웃 구현&#10;- 로그아웃시 뒤로가기를 이용한 메인으로 들어가기 방지&#10;&#10;+&#10;- 스피너에서 나이 지정시 에러 해결">
+      <created>1621587061011</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1621587061011</updated>
+    </task>
+    <task id="LOCAL-00007" summary="2021.05.21 계정 정보 변경 구현">
+      <created>1621590287584</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1621590287584</updated>
+    </task>
+    <task id="LOCAL-00008" summary="2021.05.21 계정 정보 변경 구현">
+      <created>1621592044003</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1621592044003</updated>
+    </task>
+    <task id="LOCAL-00009" summary="2021.05.21 회원가입과 로그인 및 배너v1.2&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현&#10;- 일반 로그인 구현&#10;- 자동 로그인 구현&#10;- 로그아웃 구현&#10;- 로그아웃시 뒤로가기를 이용한 메인으로 들어가기 방지&#10;- 스피너에서 나이 지정시 에러 해결&#10;&#10;+&#10;이미지 선택기능 차후로 변경">
+      <created>1621592372382</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1621592372382</updated>
+    </task>
+    <task id="LOCAL-00010" summary="2021.05.21 상세게시판 구현v2&#10;- api 연동 완료">
+      <created>1621602240642</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1621602240642</updated>
+    </task>
+    <task id="LOCAL-00011" summary="2021.05.21 회원가입과 로그인 및 배너v1.3&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현&#10;- 일반 로그인 구현&#10;- 자동 로그인 구현&#10;- 로그아웃 구현&#10;- 로그아웃시 뒤로가기를 이용한 메인으로 들어가기 방지&#10;- 스피너에서 나이 지정시 에러 해결&#10;&#10;+&#10;- 자동 로그인시 처음 불러올 데이터 없을 때의 에러 해결">
+      <created>1621602334680</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1621602334680</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="2021.05.21 메인화면과 네비게이션뷰 구현" />
+    <MESSAGE value="2021.05.21 상세게시판 구현 및 위치기반 미세먼지단계 표시기능 구현" />
+    <MESSAGE value="2021.05.21 회원가입과 로그인 및 배너v1.1&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현" />
+    <MESSAGE value="2021.05.21 회원가입과 로그인 및 배너v1.2&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현&#10;&#10;+&#10;- 일반 로그인 구현&#10;- 자동 로그인 구현&#10;- 로그아웃 구현&#10;- 로그아웃시 뒤로가기를 이용한 메인으로 들어가기 방지" />
+    <MESSAGE value="2021.05.21 계정 확인창 구현&#10;- 자신의 이메일을 기준으로 자신의 정보를 보여줌" />
+    <MESSAGE value="2021.05.21 회원가입과 로그인 및 배너v1.2&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현&#10;- 일반 로그인 구현&#10;- 자동 로그인 구현&#10;- 로그아웃 구현&#10;- 로그아웃시 뒤로가기를 이용한 메인으로 들어가기 방지&#10;&#10;+&#10;- 스피너에서 나이 지정시 에러 해결" />
+    <MESSAGE value="2021.05.21 계정 정보 변경 구현" />
+    <MESSAGE value="2021.05.21 회원가입과 로그인 및 배너v1.2&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현&#10;- 일반 로그인 구현&#10;- 자동 로그인 구현&#10;- 로그아웃 구현&#10;- 로그아웃시 뒤로가기를 이용한 메인으로 들어가기 방지&#10;- 스피너에서 나이 지정시 에러 해결&#10;&#10;+&#10;이미지 선택기능 차후로 변경" />
+    <MESSAGE value="2021.05.21 상세게시판 구현v2&#10;- api 연동 완료" />
+    <MESSAGE value="2021.05.21 회원가입과 로그인 및 배너v1.3&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현&#10;- 일반 로그인 구현&#10;- 자동 로그인 구현&#10;- 로그아웃 구현&#10;- 로그아웃시 뒤로가기를 이용한 메인으로 들어가기 방지&#10;- 스피너에서 나이 지정시 에러 해결&#10;&#10;+&#10;- 자동 로그인시 처음 불러올 데이터 없을 때의 에러 해결" />
+    <option name="LAST_COMMIT_MESSAGE" value="2021.05.21 회원가입과 로그인 및 배너v1.3&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현&#10;- 일반 로그인 구현&#10;- 자동 로그인 구현&#10;- 로그아웃 구현&#10;- 로그아웃시 뒤로가기를 이용한 메인으로 들어가기 방지&#10;- 스피너에서 나이 지정시 에러 해결&#10;&#10;+&#10;- 자동 로그인시 처음 불러올 데이터 없을 때의 에러 해결" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2946" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1621563169365">
+      <screen x="1920" y="25" width="1792" height="1095" />
+    </state>
+    <state x="1099" y="196" key="#com.intellij.ide.util.MemberChooser/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621231340886" />
+    <state x="2946" y="202" key="#com.intellij.ide.util.MemberChooser/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621563169365" />
+    <state x="1099" y="196" key="#com.intellij.ide.util.MemberChooser/0.25.1920.1055@0.25.1920.1055" timestamp="1621133590032" />
+    <state x="632" y="244" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1621150450175">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="632" y="244" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621150450175" />
+    <state x="1006" y="244" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1621130981005">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="1006" y="244" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1621130981005" />
+    <state x="2534" y="328" width="564" height="505" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1621603284207">
+      <screen x="1920" y="25" width="1792" height="1095" />
+    </state>
+    <state x="2534" y="328" width="564" height="505" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621603284207" />
+    <state x="107" y="121" width="1706" height="863" key="AVDManager" timestamp="1621600263966">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="107" y="121" width="1706" height="863" key="AVDManager/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621600263966" />
+    <state x="2020" y="125" width="1592" height="895" key="AVDManager/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621571083169" />
+    <state x="2429" y="315" key="AndroidCreateResourceDirectoryDialog" timestamp="1621602907930">
+      <screen x="1920" y="25" width="1792" height="1095" />
+    </state>
+    <state x="2429" y="315" key="AndroidCreateResourceDirectoryDialog/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621602907930" />
+    <state x="545" y="304" key="AndroidCreateResourceDirectoryDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1620979674871" />
+    <state x="2429" y="315" key="AndroidCreateResourceFileDialog" timestamp="1621427065605">
+      <screen x="1920" y="25" width="1792" height="1095" />
+    </state>
+    <state x="545" y="304" key="AndroidCreateResourceFileDialog/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621155981760" />
+    <state x="2429" y="315" key="AndroidCreateResourceFileDialog/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621427065605" />
+    <state x="545" y="304" key="AndroidCreateResourceFileDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1621129732607" />
+    <state x="100" y="125" width="1720" height="855" key="DiffContextDialog" timestamp="1621478999619">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="100" y="125" width="1720" height="855" key="DiffContextDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1621478999619" />
+    <state x="2749" y="374" width="844" height="387" key="Github.ShareDialog" timestamp="1621515439840">
+      <screen x="1920" y="25" width="1792" height="1095" />
+    </state>
+    <state x="2749" y="374" width="844" height="387" key="Github.ShareDialog/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621515439840" />
+    <state x="200" y="436" width="626" height="299" key="Github.ShareDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1621477762085" />
+    <state x="2559" y="202" key="Github.UntrackedFilesDialog" timestamp="1621515667669">
+      <screen x="1920" y="25" width="1792" height="1095" />
+    </state>
+    <state x="2559" y="202" key="Github.UntrackedFilesDialog/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621515667669" />
+    <state x="685" y="196" key="Github.UntrackedFilesDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1621477779157" />
+    <state width="1266" height="286" key="GridCell.Tab.0.bottom" timestamp="1621602072289">
+      <screen x="1920" y="25" width="1792" height="1095" />
+    </state>
+    <state width="932" height="274" key="GridCell.Tab.0.bottom/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621233936150" />
+    <state width="1368" height="273" key="GridCell.Tab.0.bottom/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202724" />
+    <state width="1266" height="286" key="GridCell.Tab.0.bottom/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621602072289" />
+    <state width="955" height="274" key="GridCell.Tab.0.bottom/0.25.1920.1055@0.25.1920.1055" timestamp="1621176536334" />
+    <state width="1266" height="286" key="GridCell.Tab.0.center" timestamp="1621602072289">
+      <screen x="1920" y="25" width="1792" height="1095" />
+    </state>
+    <state width="932" height="274" key="GridCell.Tab.0.center/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621233936149" />
+    <state width="1368" height="273" key="GridCell.Tab.0.center/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202723" />
+    <state width="1266" height="286" key="GridCell.Tab.0.center/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621602072289" />
+    <state width="955" height="274" key="GridCell.Tab.0.center/0.25.1920.1055@0.25.1920.1055" timestamp="1621176536333" />
+    <state width="1266" height="286" key="GridCell.Tab.0.left" timestamp="1621602072289">
+      <screen x="1920" y="25" width="1792" height="1095" />
+    </state>
+    <state width="932" height="274" key="GridCell.Tab.0.left/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621233936149" />
+    <state width="1368" height="273" key="GridCell.Tab.0.left/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202723" />
+    <state width="1266" height="286" key="GridCell.Tab.0.left/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621602072289" />
+    <state width="955" height="274" key="GridCell.Tab.0.left/0.25.1920.1055@0.25.1920.1055" timestamp="1621176536333" />
+    <state width="1266" height="286" key="GridCell.Tab.0.right" timestamp="1621602072289">
+      <screen x="1920" y="25" width="1792" height="1095" />
+    </state>
+    <state width="932" height="274" key="GridCell.Tab.0.right/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621233936149" />
+    <state width="1368" height="273" key="GridCell.Tab.0.right/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202723" />
+    <state width="1266" height="286" key="GridCell.Tab.0.right/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621602072289" />
+    <state width="955" height="274" key="GridCell.Tab.0.right/0.25.1920.1055@0.25.1920.1055" timestamp="1621176536333" />
+    <state x="2608" y="219" key="RollbackChangesDialog" timestamp="1621514904909">
+      <screen x="1920" y="25" width="1792" height="1095" />
+    </state>
+    <state x="2608" y="219" key="RollbackChangesDialog/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621514904909" />
+    <state x="737" y="212" key="RollbackChangesDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1621478176169" />
+    <state x="2235" y="104" key="SettingsEditor" timestamp="1621515279874">
+      <screen x="1920" y="25" width="1792" height="1095" />
+    </state>
+    <state x="337" y="101" key="SettingsEditor/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621235327844" />
+    <state x="2235" y="104" key="SettingsEditor/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621515279874" />
+    <state x="2316" y="246" key="Vcs.Push.Dialog.v2" timestamp="1621602339695">
+      <screen x="1920" y="25" width="1792" height="1095" />
+    </state>
+    <state x="2316" y="246" key="Vcs.Push.Dialog.v2/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621602339695" />
+    <state x="2872" y="332" key="chooseDestDirectoryDialog" timestamp="1621347949544">
+      <screen x="1920" y="25" width="1792" height="1095" />
+    </state>
+    <state x="2872" y="332" key="chooseDestDirectoryDialog/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621347949544" />
+    <state x="1020" y="321" key="chooseDestDirectoryDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1621046186563" />
+    <state x="696" y="452" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621478674160">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="696" y="452" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1920.1055@0.25.1920.1055" timestamp="1621478674160" />
+    <state x="398" y="25" width="1422" height="749" key="dock-window-1" timestamp="1621602666499">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="0" y="25" width="1799" height="1055" maximized="true" key="dock-window-1/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621512547752" />
+    <state x="398" y="25" width="1422" height="749" key="dock-window-1/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621602666499" />
+    <state x="2248" y="65" width="1398" height="1055" key="dock-window-1/0.25.1920.1055/3712.25.1024.743/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621400166349" />
+    <state x="0" y="25" width="1796" height="1055" maximized="true" key="dock-window-1/0.25.1920.1055@0.25.1920.1055" timestamp="1621479091465" />
+    <state x="765" y="326" key="refactoring.ChangeSignatureDialog" timestamp="1621148412693">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="765" y="326" key="refactoring.ChangeSignatureDialog/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621148412693" />
+  </component>
+</project>

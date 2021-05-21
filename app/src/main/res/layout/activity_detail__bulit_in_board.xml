@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".detail_BulitInBoard">
+    tools:context=".ActivityOrFragment.DetailBulitInBoardActivity">
 
     <TextView
         android:id="@+id/groupName_detailBoard"
@@ -36,7 +36,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="95dp"
         android:layout_marginBottom="224dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/participantbtn_detailBoard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -76,7 +76,7 @@
         app:layout_constraintTop_toBottomOf="@+id/meetingDate_detailBoard" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/participantbtn_detailBoard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="149dp"
