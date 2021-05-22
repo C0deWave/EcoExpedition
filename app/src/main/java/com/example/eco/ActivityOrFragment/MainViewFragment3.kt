@@ -2,6 +2,7 @@ package com.example.eco.ActivityOrFragment
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,7 @@ import kotlinx.coroutines.launch
 import okhttp3.*
 import okhttp3.Response
 import java.io.IOException
+import java.lang.Exception
 
 
 class MainViewFragment3 : Fragment() {
@@ -102,11 +104,15 @@ class MainViewFragment3 : Fragment() {
 
             override fun onResponse(call: Call, response: Response) {
                 CoroutineScope(Dispatchers.Main).launch {
-                    val res = response.body!!.string()
-                    var rawData2 = res.substring(1,res.length-1)
-                    val data = Gson().fromJson(rawData2 , Donation::class.java)
-                    donationPriceTextView_fragment3.text = deleteDecimal(data.total_amount) + "원"
-                    donationCountTextView_fragment3.text = deleteDecimal(data.num_of_times) + "번 기부"
+                    try{
+                        val res = response.body!!.string()
+                        var rawData2 = res.substring(1, res.length - 1)
+                        val data = Gson().fromJson(rawData2, Donation::class.java)
+                        donationPriceTextView_fragment3.text = deleteDecimal(data.total_amount) + "원"
+                        donationCountTextView_fragment3.text = deleteDecimal(data.num_of_times) + "번 기부"
+                    }catch (e:Exception){
+                        Log.d("fragment","${e.stackTrace}")
+                    }
                 }
             }
         })
