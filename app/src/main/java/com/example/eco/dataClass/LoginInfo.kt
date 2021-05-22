@@ -2,6 +2,7 @@ package com.example.eco.dataClass
 
 data class LoginInfo(
     val age: String,
+    val pic : String,
     val d_amount: String,
     val email: String,
     val name: String,

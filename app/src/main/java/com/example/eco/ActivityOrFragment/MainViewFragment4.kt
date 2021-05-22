@@ -2,15 +2,17 @@ package com.example.eco.ActivityOrFragment
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.eco.R
 import com.example.eco.dataClass.LoginInfo
 import com.google.gson.Gson
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_main_view4.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,8 +21,8 @@ import kotlinx.coroutines.launch
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
-import okhttp3.Response
 import java.io.IOException
+
 
 class MainViewFragment4 : Fragment() {
 
@@ -31,7 +33,7 @@ class MainViewFragment4 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var name = loadFromInnerStorage("userInfoData.txt")
-        Log.d("name" , "${name}")
+        Log.d("name", "${name}")
         if (name != null) {
             setData(name)
         }
@@ -46,17 +48,17 @@ class MainViewFragment4 : Fragment() {
             val intent = Intent(activity, SettingAccountActivity::class.java)
 //            emailText_fragment4.text = res.email
 //            ageText_fragment4.text = setAge(res.age)
-            intent.putExtra("name",userNameText_fragment4.text)
-            intent.putExtra("pwd",pwd)
-            intent.putExtra("doantion",donation)
-            intent.putExtra("participant",partcipantGroup)
+            intent.putExtra("name", userNameText_fragment4.text)
+            intent.putExtra("pwd", pwd)
+            intent.putExtra("doantion", donation)
+            intent.putExtra("participant", partcipantGroup)
 
             startActivity(intent)
         }
     }
 
     private fun logout() {
-        saveToInnerStorage("","userInfoData.txt")
+        saveToInnerStorage("", "userInfoData.txt")
         val intent = Intent(activity, BannerActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -103,19 +105,29 @@ class MainViewFragment4 : Fragment() {
                         CoroutineScope(Dispatchers.Main).launch {
                             // 회원조회 응답
                             val data = response.body!!.string()
-                            var rawData2 = data.substring(31,data.length-4)
-                            val res = Gson().fromJson(rawData2 , LoginInfo::class.java)
+                            var rawData2 = data.substring(31, data.length - 4)
+                            val res = Gson().fromJson(rawData2, LoginInfo::class.java)
                             emailText_fragment4.text = res.email
                             userNameText_fragment4.text = res.name
                             pwd = res.pswd
                             partcipantGroup = res.p_group
                             donation = res.d_amount
-                            Log.d("pwd" , "${pwd}")
+                            Log.d("pwd", "${pwd}")
                             ageText_fragment4.text = setAge(res.age)
                             DonationPriceText_fragment4.text = res.d_amount
-                            if (res.p_group == ""){
-                                groupListText_fragment4.text = "아직 참가중인 모임이 없습니다.\n모임에 참여해 환경운동을 해보는건 어떨까요?"
-                            }else{
+
+                            //uri이미지 할당하기
+                            var uri = Uri.parse(res.pic)
+                            Log.d("이미지,", " ${uri} ");
+
+                            //성공
+                            //val uri = Uri.parse("https://imagehackerton.s3.ap-northeast-2.amazonaws.com/imagehackerton/sssss.jpg")
+                                Picasso.with(context).load(uri).into(userImageView_fragment4)
+
+                            if (res.p_group == "") {
+                                groupListText_fragment4.text =
+                                    "아직 참가중인 모임이 없습니다.\n모임에 참여해 환경운동을 해보는건 어떨까요?"
+                            } else {
                                 groupListText_fragment4.text = res.p_group
                             }
                         }
@@ -134,7 +146,7 @@ class MainViewFragment4 : Fragment() {
         return fileInputStream?.reader()?.readText()
     }
 
-    fun saveToInnerStorage(text:String, filename:String){
+    fun saveToInnerStorage(text: String, filename: String){
         //내부저장소의 전달된 파일이름의 파일 출력스트림을 가져온다.
         //MODE_APPEND = 파일에 기존의 내용 이후에 붙이는 모드입니다.
         //MODE_PRIVATE 앱 전용으로 만들어 다른 앱에서는 접근 불가, 이미 파일이 있는 경우 기존 파일에 덮어씁니다.
@@ -147,7 +159,7 @@ class MainViewFragment4 : Fragment() {
 
     private fun setAge(p2: String): String {
         when(p2){
-             "5" -> return "10대"
+            "5" -> return "10대"
             "15" -> return "10대"
             "25" -> return "20대"
             "35" -> return "30대"

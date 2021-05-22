@@ -171,7 +171,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/userImageView"
+        android:id="@+id/userImageView_makeAccount"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
@@ -229,7 +229,7 @@
         android:text="이미지는 차후에 계정정보 변경에서 추가 가능합니다."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/userImageView_makeAccount" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -70,7 +70,7 @@ class MakeAccountActivity : AppCompatActivity() {
         }
 
         // 이미지 변경기능
-        userImageView.setOnClickListener {  }
+        userImageView_makeAccount.setOnClickListener {  }
 
         // 회원가입 버튼
         signInButton_MakeAccount.setOnClickListener {
@@ -207,7 +207,7 @@ class MakeAccountActivity : AppCompatActivity() {
             val uriPathHelper = URIPathHelper()
             val filePath = uriPathHelper.getPath(this, selectImageUri!!)
             Log.d("이미지 URI", filePath.toString())
-            userImageView.setImageURI(selectImageUri)
+            userImageView_makeAccount.setImageURI(selectImageUri)
         }
     }
 

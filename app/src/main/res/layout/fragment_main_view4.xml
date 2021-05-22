@@ -36,27 +36,27 @@
             tools:src="@tools:sample/backgrounds/scenic" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/userImageView"
-            android:layout_width="151dp"
-            android:layout_height="151dp"
+
+            android:id="@+id/userImageView_fragment4"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_marginTop="32dp"
-            android:clickable="true"
-            android:src="@drawable/user2"
+            android:src="@drawable/banner1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
         <TextView
             android:id="@+id/userNameText_fragment4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/nanumsquarerxtrabold"
             android:text="내 이름"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userImageView" />
+            app:layout_constraintTop_toBottomOf="@+id/userImageView_fragment4" />
 
         <ImageView
             android:id="@+id/settingAccountBtn_fragment4"
@@ -74,13 +74,11 @@
             android:id="@+id/logoutBtn_fragment4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginBottom="43dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="28dp"
             android:text="로그아웃"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4"
-            app:layout_constraintVertical_bias="0.973" />
+            app:layout_constraintTop_toBottomOf="@+id/groupListText_fragment4" />
 
         <TextView
             android:id="@+id/emailText_fragment4"
