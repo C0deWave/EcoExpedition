@@ -1,5 +1,6 @@
 package com.example.eco.ActivityOrFragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -36,6 +37,11 @@ class MainViewFragment2 : Fragment() {
 
         personal_recyclerView.adapter = SnsItemAdapter(grouplist)
         personal_recyclerView.layoutManager = LinearLayoutManager(activity);
+        writeBtn_fragment2.setOnClickListener {
+            // 화면 변경을 구현하면 됩니다.
+            val intent = Intent(context, WriteSnsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

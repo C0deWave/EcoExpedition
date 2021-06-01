@@ -33,33 +33,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bc86a66-5a99-4a61-89ed-360ebfa53a8b" name="Default Changelist" comment="2021.05.22 기부금 화면v1.1&#10;-기부금 화면이 로딩되기 전에 다른 프레그먼트로 이동시 나타나는 에러 해결">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/adapter/SnsItemAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/SnsData.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/SnsListData.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/sns_item.xml" afterDir="false" />
+    <list default="true" id="2bc86a66-5a99-4a61-89ed-360ebfa53a8b" name="Default Changelist" comment="2021.06.01 레이아웃 대규모 변경">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/WriteSnsActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_write_sns.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/BannerActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/BannerActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/DetailBulitInBoardActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/DetailBulitInBoardActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment1.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment1.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment2.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment4.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment4.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MakeAccountActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MakeAccountActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/SettingAccountActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/SettingAccountActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/WriteBoardPageActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/WriteBoardPageActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/adapter/BulitinBoardItemAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/adapter/GroupItemAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/BoardData.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/GroupListDataItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/GroupListDataItem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/LoginInfo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/dataClass/LoginInfo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail__bulit_in_board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail__bulit_in_board.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_make_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_make_account.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_account.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_write_board_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_write_board_page.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/bulit_board_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/bulit_board_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_view2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/bottom_navigation_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/bottom_navigation_menu.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,6 +137,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
       <recent name="$PROJECT_DIR$/app/src/main/res/font" />
+    </key>
+    <key name="android.template.-382878829">
+      <recent name="com.example.eco.ActivityOrFragment" />
     </key>
     <key name="android.template.-2054572219">
       <recent name="com.example.eco" />
@@ -382,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621652756657</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="2021.06.01 레이아웃 대규모 변경">
+      <created>1622544837497</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1622544837497</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -431,7 +422,8 @@
     <MESSAGE value="2021.05.22 계정 확인창 구현&#10;- 자신의 이메일을 기준으로 자신의 정보를 보여줌&#10;&#10;+&#10;- 피카소 라이브러리를 이용한 서버 uri 프로필 이미지 표시 추가" />
     <MESSAGE value="2021.05.22 기부금 화면v1.1&#10;-기부금 화면이 로딩되기 전에 다른 프레그먼트로 이동시 나타나는 에러 해결" />
     <MESSAGE value="2021.05.22 기부금 화면 v1.1&#10;- 기부금 api가 로딩되기 전에 프레그먼트를 탈출할시 나타나는 에러 해결" />
-    <option name="LAST_COMMIT_MESSAGE" value="2021.05.22 기부금 화면 v1.1&#10;- 기부금 api가 로딩되기 전에 프레그먼트를 탈출할시 나타나는 에러 해결" />
+    <MESSAGE value="2021.06.01 레이아웃 대규모 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="2021.06.01 레이아웃 대규모 변경" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2430" y="83" key="#app" timestamp="1621618454843">
@@ -488,40 +480,40 @@
     </state>
     <state x="2559" y="202" key="Github.UntrackedFilesDialog/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621515667669" />
     <state x="685" y="196" key="Github.UntrackedFilesDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1621477779157" />
-    <state width="1737" height="229" key="GridCell.Tab.0.bottom" timestamp="1622544435911">
+    <state width="1737" height="229" key="GridCell.Tab.0.bottom" timestamp="1622549510215">
       <screen x="0" y="25" width="1792" height="1095" />
     </state>
-    <state width="1737" height="229" key="GridCell.Tab.0.bottom/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622544435911" />
+    <state width="1737" height="229" key="GridCell.Tab.0.bottom/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622549510215" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1621617550114" />
     <state width="1737" height="229" key="GridCell.Tab.0.bottom/0.25.1792.1095@0.25.1792.1095" timestamp="1622541085648" />
     <state width="1572" height="229" key="GridCell.Tab.0.bottom/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621768033537" />
     <state width="1368" height="273" key="GridCell.Tab.0.bottom/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202724" />
     <state width="1737" height="113" key="GridCell.Tab.0.bottom/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621690567761" />
     <state width="1572" height="229" key="GridCell.Tab.0.bottom/0.25.1920.1055@0.25.1920.1055" timestamp="1621751859607" />
-    <state width="1737" height="229" key="GridCell.Tab.0.center" timestamp="1622544435910">
+    <state width="1737" height="229" key="GridCell.Tab.0.center" timestamp="1622549510215">
       <screen x="0" y="25" width="1792" height="1095" />
     </state>
-    <state width="1737" height="229" key="GridCell.Tab.0.center/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622544435910" />
+    <state width="1737" height="229" key="GridCell.Tab.0.center/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622549510215" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1621617550114" />
     <state width="1737" height="229" key="GridCell.Tab.0.center/0.25.1792.1095@0.25.1792.1095" timestamp="1622541085647" />
     <state width="1572" height="229" key="GridCell.Tab.0.center/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621768033537" />
     <state width="1368" height="273" key="GridCell.Tab.0.center/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202723" />
     <state width="1737" height="113" key="GridCell.Tab.0.center/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621690567760" />
     <state width="1572" height="229" key="GridCell.Tab.0.center/0.25.1920.1055@0.25.1920.1055" timestamp="1621751859607" />
-    <state width="1737" height="229" key="GridCell.Tab.0.left" timestamp="1622544435910">
+    <state width="1737" height="229" key="GridCell.Tab.0.left" timestamp="1622549510215">
       <screen x="0" y="25" width="1792" height="1095" />
     </state>
-    <state width="1737" height="229" key="GridCell.Tab.0.left/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622544435910" />
+    <state width="1737" height="229" key="GridCell.Tab.0.left/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622549510215" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1621617550114" />
     <state width="1737" height="229" key="GridCell.Tab.0.left/0.25.1792.1095@0.25.1792.1095" timestamp="1622541085647" />
     <state width="1572" height="229" key="GridCell.Tab.0.left/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621768033536" />
     <state width="1368" height="273" key="GridCell.Tab.0.left/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202723" />
     <state width="1737" height="113" key="GridCell.Tab.0.left/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621690567760" />
     <state width="1572" height="229" key="GridCell.Tab.0.left/0.25.1920.1055@0.25.1920.1055" timestamp="1621751859607" />
-    <state width="1737" height="229" key="GridCell.Tab.0.right" timestamp="1622544435911">
+    <state width="1737" height="229" key="GridCell.Tab.0.right" timestamp="1622549510215">
       <screen x="0" y="25" width="1792" height="1095" />
     </state>
-    <state width="1737" height="229" key="GridCell.Tab.0.right/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622544435911" />
+    <state width="1737" height="229" key="GridCell.Tab.0.right/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622549510215" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1621617550114" />
     <state width="1737" height="229" key="GridCell.Tab.0.right/0.25.1792.1095@0.25.1792.1095" timestamp="1622541085648" />
     <state width="1572" height="229" key="GridCell.Tab.0.right/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621768033537" />
@@ -538,24 +530,26 @@
     </state>
     <state x="337" y="101" key="SettingsEditor/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621768361460" />
     <state x="2235" y="104" key="SettingsEditor/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621515279874" />
-    <state x="2316" y="246" key="Vcs.Push.Dialog.v2" timestamp="1621652764910">
-      <screen x="1920" y="25" width="1792" height="1095" />
+    <state x="396" y="246" key="Vcs.Push.Dialog.v2" timestamp="1622544843640">
+      <screen x="0" y="25" width="1792" height="1095" />
     </state>
+    <state x="396" y="246" key="Vcs.Push.Dialog.v2/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622544843640" />
     <state x="2316" y="246" key="Vcs.Push.Dialog.v2/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621652764910" />
     <state x="2872" y="332" key="chooseDestDirectoryDialog" timestamp="1621347949544">
       <screen x="1920" y="25" width="1792" height="1095" />
     </state>
     <state x="2872" y="332" key="chooseDestDirectoryDialog/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621347949544" />
     <state x="1020" y="321" key="chooseDestDirectoryDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1621046186563" />
-    <state x="2570" y="468" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621652623553">
-      <screen x="1920" y="25" width="1792" height="1095" />
+    <state x="650" y="468" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1622545405878">
+      <screen x="0" y="25" width="1792" height="1095" />
     </state>
+    <state x="650" y="468" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622545405878" />
     <state x="2570" y="468" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621652623553" />
     <state x="696" y="452" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1920.1055@0.25.1920.1055" timestamp="1621478674160" />
-    <state x="-1920" y="25" width="1792" height="1055" maximized="true" key="dock-window-1" timestamp="1622543449178">
+    <state x="-1920" y="25" width="1794" height="1055" maximized="true" key="dock-window-1" timestamp="1622545166509">
       <screen x="-1920" y="25" width="1920" height="1055" />
     </state>
-    <state x="-1920" y="25" width="1792" height="1055" maximized="true" key="dock-window-1/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622543449178" />
+    <state x="-1920" y="25" width="1794" height="1055" maximized="true" key="dock-window-1/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622545166509" />
     <state x="12" y="31" width="1780" height="1089" maximized="true" key="dock-window-1/0.25.1792.1095@0.25.1792.1095" timestamp="1622540915269" />
     <state x="135" y="1105" width="1778" height="1088" maximized="true" key="dock-window-1/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621761111226" />
     <state x="0" y="25" width="1799" height="1055" maximized="true" key="dock-window-1/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621512547752" />
