@@ -33,10 +33,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bc86a66-5a99-4a61-89ed-360ebfa53a8b" name="Default Changelist" comment="2021.06.01 SNS 좋아요 기능 구현">
+    <list default="true" id="2bc86a66-5a99-4a61-89ed-360ebfa53a8b" name="Default Changelist" comment="2021.06.01 SNS 좋아요 표시 구현">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/ActivityOrFragment/MainViewFragment2.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/adapter/SnsItemAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/adapter/SnsItemAdapter.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -386,7 +384,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622560107061</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="2021.06.01 SNS 좋아요 표시 구현">
+      <created>1622562261237</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1622562261237</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -438,7 +443,8 @@
     <MESSAGE value="2021.06.01 레이아웃 대규모 변경" />
     <MESSAGE value="2021.06.01 SNS 글 작성기능 구현" />
     <MESSAGE value="2021.06.01 SNS 좋아요 기능 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="2021.06.01 SNS 좋아요 기능 구현" />
+    <MESSAGE value="2021.06.01 SNS 좋아요 표시 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="2021.06.01 SNS 좋아요 표시 구현" />
   </component>
   <component name="WindowStateProjectService">
     <state x="600" y="181" key="#Auto_Import" timestamp="1622554654019">
@@ -500,40 +506,40 @@
     </state>
     <state x="2559" y="202" key="Github.UntrackedFilesDialog/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621515667669" />
     <state x="685" y="196" key="Github.UntrackedFilesDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1621477779157" />
-    <state width="1737" height="229" key="GridCell.Tab.0.bottom" timestamp="1622562204464">
+    <state width="1737" height="229" key="GridCell.Tab.0.bottom" timestamp="1622562536316">
       <screen x="0" y="25" width="1792" height="1095" />
     </state>
-    <state width="1737" height="229" key="GridCell.Tab.0.bottom/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622562204464" />
+    <state width="1737" height="229" key="GridCell.Tab.0.bottom/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622562536316" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1621617550114" />
     <state width="1737" height="229" key="GridCell.Tab.0.bottom/0.25.1792.1095@0.25.1792.1095" timestamp="1622541085648" />
     <state width="1572" height="229" key="GridCell.Tab.0.bottom/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621768033537" />
     <state width="1368" height="273" key="GridCell.Tab.0.bottom/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202724" />
     <state width="1737" height="113" key="GridCell.Tab.0.bottom/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621690567761" />
     <state width="1572" height="229" key="GridCell.Tab.0.bottom/0.25.1920.1055@0.25.1920.1055" timestamp="1621751859607" />
-    <state width="1737" height="229" key="GridCell.Tab.0.center" timestamp="1622562204463">
+    <state width="1737" height="229" key="GridCell.Tab.0.center" timestamp="1622562536316">
       <screen x="0" y="25" width="1792" height="1095" />
     </state>
-    <state width="1737" height="229" key="GridCell.Tab.0.center/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622562204463" />
+    <state width="1737" height="229" key="GridCell.Tab.0.center/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622562536316" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1621617550114" />
     <state width="1737" height="229" key="GridCell.Tab.0.center/0.25.1792.1095@0.25.1792.1095" timestamp="1622541085647" />
     <state width="1572" height="229" key="GridCell.Tab.0.center/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621768033537" />
     <state width="1368" height="273" key="GridCell.Tab.0.center/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202723" />
     <state width="1737" height="113" key="GridCell.Tab.0.center/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621690567760" />
     <state width="1572" height="229" key="GridCell.Tab.0.center/0.25.1920.1055@0.25.1920.1055" timestamp="1621751859607" />
-    <state width="1737" height="229" key="GridCell.Tab.0.left" timestamp="1622562204463">
+    <state width="1737" height="229" key="GridCell.Tab.0.left" timestamp="1622562536316">
       <screen x="0" y="25" width="1792" height="1095" />
     </state>
-    <state width="1737" height="229" key="GridCell.Tab.0.left/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622562204463" />
+    <state width="1737" height="229" key="GridCell.Tab.0.left/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622562536316" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1621617550114" />
     <state width="1737" height="229" key="GridCell.Tab.0.left/0.25.1792.1095@0.25.1792.1095" timestamp="1622541085647" />
     <state width="1572" height="229" key="GridCell.Tab.0.left/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621768033536" />
     <state width="1368" height="273" key="GridCell.Tab.0.left/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621601202723" />
     <state width="1737" height="113" key="GridCell.Tab.0.left/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621690567760" />
     <state width="1572" height="229" key="GridCell.Tab.0.left/0.25.1920.1055@0.25.1920.1055" timestamp="1621751859607" />
-    <state width="1737" height="229" key="GridCell.Tab.0.right" timestamp="1622562204464">
+    <state width="1737" height="229" key="GridCell.Tab.0.right" timestamp="1622562536316">
       <screen x="0" y="25" width="1792" height="1095" />
     </state>
-    <state width="1737" height="229" key="GridCell.Tab.0.right/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622562204464" />
+    <state width="1737" height="229" key="GridCell.Tab.0.right/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622562536316" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1621617550114" />
     <state width="1737" height="229" key="GridCell.Tab.0.right/0.25.1792.1095@0.25.1792.1095" timestamp="1622541085648" />
     <state width="1572" height="229" key="GridCell.Tab.0.right/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621768033537" />
@@ -566,10 +572,10 @@
     <state x="650" y="468" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622545405878" />
     <state x="2570" y="468" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621652623553" />
     <state x="696" y="452" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1920.1055@0.25.1920.1055" timestamp="1621478674160" />
-    <state x="-1920" y="25" width="1798" height="1055" maximized="true" key="dock-window-1" timestamp="1622560252654">
+    <state x="-1920" y="25" width="1799" height="1055" maximized="true" key="dock-window-1" timestamp="1622562532352">
       <screen x="-1920" y="25" width="1920" height="1055" />
     </state>
-    <state x="-1920" y="25" width="1798" height="1055" maximized="true" key="dock-window-1/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622560252654" />
+    <state x="-1920" y="25" width="1799" height="1055" maximized="true" key="dock-window-1/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622562532352" />
     <state x="12" y="31" width="1780" height="1089" maximized="true" key="dock-window-1/0.25.1792.1095@0.25.1792.1095" timestamp="1622540915269" />
     <state x="135" y="1105" width="1778" height="1088" maximized="true" key="dock-window-1/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621761111226" />
     <state x="0" y="25" width="1799" height="1055" maximized="true" key="dock-window-1/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621512547752" />

@@ -1,5 +1,6 @@
 package com.example.eco.adapter
 
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.eco.ActivityOrFragment.MainActivity
 import com.example.eco.R
 import com.example.eco.dataClass.SnsData
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.bulit_board_item.view.*
 import kotlinx.android.synthetic.main.sns_item.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -44,6 +47,16 @@ class SnsItem(itemView: View, coroutineScope: FragmentActivity) : RecyclerView.V
     val coroutineScope = coroutineScope
 
     fun bindData(snsData: SnsData) {
+
+        //이미지 로딩
+        try{
+        Picasso.with(itemView.context)
+                .load(Uri.parse(snsData.sns_pic))
+                .into(itemView.imageView_snsItem)
+        }catch (e : Exception){
+            Log.d("SnsItemAdapter","${e}")
+        }
+
         itemView.nameText_snsItem.text = snsData.sns_name
         itemView.intro_snsItem.text = snsData.sns_intro
         itemView.favoriteText_snsItem.text = snsData.thumsup

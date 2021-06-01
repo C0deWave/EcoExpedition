@@ -94,7 +94,7 @@ class WriteSnsActivity : AppCompatActivity() {
             // 보낼 데이터 json으로 만들기
             val data = "{" +
                     "\"sns_name\" : \"${snsTitle_WriteSns.text}\"," +
-                    "\"sns_pic\" : \"${writer}${formatted}.jpg\"," +
+                    "\"sns_pic\" : \"${writer}${formatted}\"," +
                     "\"sns_intro\" : \"${snsIntro_WriteSns.text}\"," +
                     "\"name\" : \"${writer}\"" +
                     "}"
