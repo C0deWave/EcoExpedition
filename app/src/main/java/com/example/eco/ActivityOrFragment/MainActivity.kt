@@ -54,20 +54,21 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
             // 3. 응답
             client.newCall(req).enqueue(object : Callback {
-                override fun onFailure(call: Call, e: IOException) { }
+                override fun onFailure(call: Call, e: IOException) {}
                 override fun onResponse(call: Call, response: Response) {
                     // 응답이 오면 메인스레드에서 처리를 진행한다.
                     CoroutineScope(Dispatchers.Main).launch {
                         // 회원조회 응답
-                        try {
-                            val data = response.body!!.string()
-                            var rawData2 = data.substring(31, data.length - 4)
-                            res = Gson().fromJson(rawData2, UserInfo::class.java)
-                            Log.d("초기 설정 완료","${rawData2.toString()}")
+//                        try {
+                        val data = response.body!!.string()
+                        var rawData2 = data.substring(31, data.length - 4)
+                        Log.d("data", "${rawData2}")
+                        res = Gson().fromJson(rawData2, UserInfo::class.java)
+                        Log.d("초기 설정 완료", "${rawData2.toString()}")
 
-                        }catch (e : Exception){
-                            Log.d("fragment4","${e.stackTrace}")
-                        }
+//                        }catch (e : Exception){
+//                            Log.d("fragment4","${e}")
+//                        }
                     }
                 }
             })

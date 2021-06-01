@@ -43,10 +43,6 @@ class MainViewFragment2 : Fragment() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -80,13 +76,19 @@ class MainViewFragment2 : Fragment() {
                                 data = Gson().fromJson(da2, SnsListData::class.java)
 
                                 for (datum in data) {
+                                    var fav_list = (activity as MainActivity).res.fav_list
+                                    var index = fav_list!!.find { it:String -> it == "${datum.sns_name}" }
+                                    if (index != null){
+                                        datum.isFaveriteClick = true
+                                        Log.d("tag","tag")
+                                    }
                                     grouplist.add(datum)
                                 }
                                 personal_recyclerView.adapter = SnsItemAdapter(data,activity!!)
-                                personal_recyclerView.layoutManager = LinearLayoutManager(activity);
+                                personal_recyclerView.layoutManager = LinearLayoutManager(activity)
 
                             }catch (e : Exception){
-                                Log.d("err","${e.stackTrace}")
+                                Log.d("err","${e}")
                             }
                         }
                     }

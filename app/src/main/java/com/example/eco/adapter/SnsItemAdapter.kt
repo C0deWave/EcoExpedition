@@ -20,6 +20,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONArray
 import java.io.IOException
 
 class SnsItemAdapter(var data: List<SnsData>, coroutineScope: FragmentActivity) : RecyclerView.Adapter<SnsItem>() {
@@ -46,20 +47,22 @@ class SnsItem(itemView: View, coroutineScope: FragmentActivity) : RecyclerView.V
         itemView.nameText_snsItem.text = snsData.sns_name
         itemView.intro_snsItem.text = snsData.sns_intro
         itemView.favoriteText_snsItem.text = snsData.thumsup
-        snsData.isFaveriteClick = false
+        if (snsData.isFaveriteClick == true) {
+            itemView.faveriteBtn_snsItem.setImageResource(R.drawable.ic_baseline_favorite_red)
+        }
         itemView.faveriteBtn_snsItem.setOnClickListener {
-            if (snsData.isFaveriteClick == false){
+            if (snsData.isFaveriteClick == true){
+                snsData.isFaveriteClick = false
+                snsData.thumsup = (snsData.thumsup.toInt() - 1).toString()
+                itemView.faveriteBtn_snsItem.setImageResource(R.drawable.ic_baseline_favorite)
+                itemView.favoriteText_snsItem.text = snsData.thumsup
+                updateFavorite(snsData)
+                addfavList(snsData,coroutineScope)
+            }else{
                 snsData.isFaveriteClick = true
                 snsData.thumsup = (snsData.thumsup.toInt() + 1).toString()
                 itemView.favoriteText_snsItem.text = snsData.thumsup
                 itemView.faveriteBtn_snsItem.setImageResource(R.drawable.ic_baseline_favorite_red)
-                updateFavorite(snsData)
-                addfavList(snsData,coroutineScope)
-            }else{
-                snsData.isFaveriteClick = false
-                snsData.thumsup = (snsData.thumsup.toInt() - 1).toString()
-                itemView.favoriteText_snsItem.text = snsData.thumsup
-                itemView.faveriteBtn_snsItem.setImageResource(R.drawable.ic_baseline_favorite)
                 updateFavorite(snsData)
                 addfavList(snsData,coroutineScope)
             }
@@ -84,9 +87,10 @@ class SnsItem(itemView: View, coroutineScope: FragmentActivity) : RecyclerView.V
 
         val api = CoroutineScope(Dispatchers.Default).async {
             // 보낼 데이터 json으로 만들기
+            val jsonArray = JSONArray(list)
             val data = "{\n" +
                     "    \"name\" : \"${name}\"," +
-                    "    \"fav_list\" : \"${list}\"" +
+                    "    \"fav_list\" : ${jsonArray}" +
                     "}"
             Log.d("fav","${data}")
             val media = "application/json; charset=utf-8".toMediaType();
