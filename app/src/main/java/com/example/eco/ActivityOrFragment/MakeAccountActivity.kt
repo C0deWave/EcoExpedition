@@ -30,37 +30,11 @@ import java.io.IOException
 
 class MakeAccountActivity : AppCompatActivity() {
 
-    val GET_GALLERY_IMAGE = 200;    // 안드로이드에서 이미지를 가져오기 상태 표시 위한 전역 변수
-    var selectImageUri: Uri? = null // 선택된 이미지의 Uri
     var age = ""
-
-
-    //내부 저장소 파일의 텍스트를 불러온다.
-    fun loadFromInnerStorage(filename: String):String{
-        //내부 저장소의 전달된 이름의 파일입력 스트림을 가져온다.
-        val fileInputStream = openFileInput(filename)
-        //파일의 저장된 내용을 읽어 String형태로 가져온다.
-        return fileInputStream.reader().readText()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_make_account)
-
-        // 나이 선택 부분 스피너 어댑터
-        //val spinner: Spinner = findViewById(R.id.spinner)
-        ArrayAdapter.createFromResource(
-                this,
-                R.array.old,
-                android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-            spinner.adapter = adapter
-            var listener = SpinnerListener()
-            spinner.onItemSelectedListener = listener
-        }
 
         // 뒤로가기 버튼을 눌렀을때
         backButton_makeAccount.setOnClickListener {
@@ -69,8 +43,6 @@ class MakeAccountActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // 이미지 변경기능
-        userImageView_makeAccount.setOnClickListener {  }
 
         // 회원가입 버튼
         signInButton_MakeAccount.setOnClickListener {
@@ -82,33 +54,6 @@ class MakeAccountActivity : AppCompatActivity() {
         // 동적으로 비밀번호 확인하는 기능
         passwordText2_MakeAccount.doAfterTextChanged { isRightPassword() }
         passwordText1_MakeAccount.doAfterTextChanged { isRightPassword() }
-    }
-
-    inner class SpinnerListener : AdapterView.OnItemSelectedListener {
-        override fun onNothingSelected(p0: AdapterView<*>?) {
-
-        }
-
-        override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) { // p2가 사용자가 선택한 곳의 인덱스
-            Log.d("지정한 나이", p2.toString())
-            setAge(p2)
-        }
-    }
-
-    private fun setAge(p2: Int) {
-        when(p2){
-            0 -> age = "5"
-            1 -> age = "15"
-            2 -> age = "25"
-            3 -> age = "35"
-            4 -> age = "45"
-            5 -> age = "55"
-            6 -> age = "65"
-            7 -> age = "75"
-            8 -> age = "85"
-            9 -> age = "95"
-            10 -> age = "105"
-        }
     }
 
     private fun makeAccount() {
@@ -188,27 +133,6 @@ class MakeAccountActivity : AppCompatActivity() {
             return false
         }
         return true
-    }
-
-    private fun getImage() {
-        var intent = Intent(Intent.ACTION_PICK)
-        intent.setDataAndType(
-            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-            "image/*"
-        )
-        startActivityForResult(intent, GET_GALLERY_IMAGE)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == GET_GALLERY_IMAGE && resultCode == RESULT_OK && data != null && data.data != null) {
-            //이미지 뷰를 해당 이미지로 교환합니다.
-            selectImageUri = data.data!!
-            val uriPathHelper = URIPathHelper()
-            val filePath = uriPathHelper.getPath(this, selectImageUri!!)
-            Log.d("이미지 URI", filePath.toString())
-            userImageView_makeAccount.setImageURI(selectImageUri)
-        }
     }
 
 

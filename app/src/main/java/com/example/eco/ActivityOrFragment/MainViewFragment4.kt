@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment
 import com.example.eco.R
 import com.example.eco.dataClass.LoginInfo
 import com.google.gson.Gson
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_main_view4.*
 import kotlinx.coroutines.CoroutineScope
@@ -22,6 +24,7 @@ import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.IOException
+import java.lang.Exception
 
 
 class MainViewFragment4 : Fragment() {
@@ -29,14 +32,20 @@ class MainViewFragment4 : Fragment() {
     var pwd = ""
     var donation = ""
     var partcipantGroup = ""
+    var uri : Uri = Uri.parse("")
+    var age = ""
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onResume() {
+        super.onResume()
+
         var name = loadFromInnerStorage("userInfoData.txt")
         Log.d("name", "${name}")
         if (name != null) {
             setData(name)
         }
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         //로그아웃 기능 구현
         logoutBtn_fragment4.setOnClickListener {
@@ -48,10 +57,12 @@ class MainViewFragment4 : Fragment() {
             val intent = Intent(activity, SettingAccountActivity::class.java)
 //            emailText_fragment4.text = res.email
 //            ageText_fragment4.text = setAge(res.age)
-            intent.putExtra("name", userNameText_fragment4.text)
+            intent.putExtra("email", emailText_fragment4.text)
             intent.putExtra("pwd", pwd)
             intent.putExtra("doantion", donation)
             intent.putExtra("participant", partcipantGroup)
+            intent.putExtra("pic",uri.toString())
+            intent.putExtra("age",age)
 
             startActivity(intent)
         }
@@ -75,67 +86,69 @@ class MainViewFragment4 : Fragment() {
 
     //로그인 기능을 구현합니다.
     fun setData(name: String){
-        CoroutineScope(Dispatchers.Main).launch {
+        val api = CoroutineScope(Dispatchers.Default).async {
+            // 보낼 데이터 json으로 만들기
+            val data = "{\n" +
+                    "    \"name\" : \"${name}\"" +
+                    "}"
 
-            val api = CoroutineScope(Dispatchers.Default).async {
-                // 보낼 데이터 json으로 만들기
-                val data = "{\n" +
-                        "    \"name\" : \"${name}\"" +
-                        "}"
+            val media = "application/json; charset=utf-8".toMediaType();
+            val body = data.toRequestBody(media)
 
-                val media = "application/json; charset=utf-8".toMediaType();
-                val body = data.toRequestBody(media)
+            // 1. 클라이언트 만들기
+            val client = OkHttpClient.Builder().build()
+            // 2. 요청
+            val req = Request.Builder()
+                    .url("https://p7s3gkde6f.execute-api.ap-northeast-2.amazonaws.com/member_get/")
+                    .put(body)
+                    .build()
 
-                // 1. 클라이언트 만들기
-                val client = OkHttpClient.Builder().build()
-                // 2. 요청
-                val req = Request.Builder()
-                        .url("https://p7s3gkde6f.execute-api.ap-northeast-2.amazonaws.com/member_get/")
-                        .put(body)
-                        .build()
+            // 3. 응답
+            client.newCall(req).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
 
-                // 3. 응답
-                client.newCall(req).enqueue(object : Callback {
-                    override fun onFailure(call: Call, e: IOException) {
+                }
 
-                    }
-
-                    override fun onResponse(call: Call, response: Response) {
-                        // 응답이 오면 메인스레드에서 처리를 진행한다.
-                        CoroutineScope(Dispatchers.Main).launch {
-                            // 회원조회 응답
+                override fun onResponse(call: Call, response: Response) {
+                    // 응답이 오면 메인스레드에서 처리를 진행한다.
+                    CoroutineScope(Dispatchers.Main).launch {
+                        // 회원조회 응답
+                        try {
                             val data = response.body!!.string()
                             var rawData2 = data.substring(31, data.length - 4)
                             val res = Gson().fromJson(rawData2, LoginInfo::class.java)
                             emailText_fragment4.text = res.email
                             userNameText_fragment4.text = res.name
                             pwd = res.pswd
-                            partcipantGroup = res.p_group
-                            donation = res.d_amount
+                            partcipantGroup = res.p_group.toString()
                             Log.d("pwd", "${pwd}")
-                            ageText_fragment4.text = setAge(res.age)
-                            DonationPriceText_fragment4.text = res.d_amount
 
                             //uri이미지 할당하기
-                            var uri = Uri.parse(res.pic)
+                            uri = Uri.parse(res.pic)
                             Log.d("이미지,", " ${uri} ");
 
-                            //성공
-                            //val uri = Uri.parse("https://imagehackerton.s3.ap-northeast-2.amazonaws.com/imagehackerton/sssss.jpg")
-                                Picasso.with(context).load(uri).into(userImageView_fragment4)
+                            Picasso.with(context).invalidate(uri)
+                            Picasso.with(context)
+                                    .load(uri)
+                                    .memoryPolicy(MemoryPolicy.NO_CACHE)
+                                    .networkPolicy(NetworkPolicy.NO_CACHE)
+                                    .into(userImageView_fragment4)
 
-                            if (res.p_group == "") {
+                            if (res.p_group.isEmpty()) {
                                 groupListText_fragment4.text =
-                                    "아직 참가중인 모임이 없습니다.\n모임에 참여해 환경운동을 해보는건 어떨까요?"
+                                        "아직 참가중인 모임이 없습니다.\n모임에 참여해 환경운동을 해보는건 어떨까요?"
                             } else {
-                                groupListText_fragment4.text = res.p_group
+                                groupListText_fragment4.text = res.toString()
                             }
+                        }catch (e : Exception){
+                            Log.d("fragment4","${e.stackTrace}")
                         }
                     }
-                })
+                }
+            })
 
-            }.await()
         }
+
     }
 
     //내부 저장소 파일의 텍스트를 불러온다.

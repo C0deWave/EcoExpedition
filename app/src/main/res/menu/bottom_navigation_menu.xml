@@ -4,11 +4,11 @@
     <item
         android:id="@+id/menu1"
         android:icon="@drawable/ic_company"
-        android:title="기업모임" />
+        android:title="모임리스트" />
     <item
         android:id="@+id/menu2"
         android:icon="@drawable/ic_baseline_supervisor_account_24"
-        android:title="개인모임" />
+        android:title="모임후기" />
     <item
         android:id="@+id/menu3"
         android:icon="@drawable/ic_baseline_attach_money_24"
@@ -16,5 +16,5 @@
     <item
         android:id="@+id/menu4"
         android:icon="@drawable/ic_baseline_account_circle_24"
-        android:title="내정보" />
+        android:title="프로필" />
 </menu>

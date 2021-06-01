@@ -52,14 +52,14 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
     <EditText
-        android:id="@+id/masterName_writeBoard"
+        android:id="@+id/locText_writeBoard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="팀장이름"
+        android:hint="주소를 입력해 주세요."
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -72,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="252dp"
-        android:text="모임장 이름"
+        android:text="지역"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/makeGroupBtn_writeboard"
         app:layout_constraintStart_toStartOf="parent"

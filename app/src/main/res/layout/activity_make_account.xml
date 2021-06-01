@@ -49,7 +49,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:fontFamily="@font/nanumsquareregular"
@@ -59,14 +59,14 @@
         app:layout_constraintEnd_toStartOf="@+id/button5"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="#474646"
+        android:backgroundTint="#8BC34A"
         android:fontFamily="@font/nanumsquareregular"
         android:text="중복확인"
         android:textColor="#FFFFFF"
@@ -79,7 +79,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:fontFamily="@font/nanumsquareregular"
@@ -102,43 +102,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordText2_MakeAccount" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="0dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:spinnerMode="dropdown"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:fontFamily="@font/nanumsquareregular"
-        android:text="나이 : "
-        android:textColor="#2B2B2B"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spinner" />
-
-    <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"
-        app:srcCompat="@android:color/darker_gray" />
-
     <ImageView
         android:id="@+id/imageView14"
         android:layout_width="0dp"
@@ -158,53 +121,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="575dp"/>
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="프로필 사진 : "
-        android:textColor="#2B2B2B"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/userImageView_makeAccount"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"
-        android:clickable="false"
-        android:src="@drawable/user2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
     <Button
         android:id="@+id/signInButton_MakeAccount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="32dp"
-        android:background="#2DDC84"
+        android:background="#8BC34A"
         android:text="회원 가입"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView13" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
 
     <EditText
         android:id="@+id/passwordText1_MakeAccount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="비밀번호"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
@@ -213,23 +155,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="비밀번호"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordText1_MakeAccount" />
-
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="이미지는 차후에 계정정보 변경에서 추가 가능합니다."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userImageView_makeAccount" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

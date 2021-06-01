@@ -18,19 +18,16 @@ import com.amazonaws.mobileconnectors.s3.transferutility.TransferListener
 import com.amazonaws.mobileconnectors.s3.transferutility.TransferNetworkLossHandler
 import com.amazonaws.mobileconnectors.s3.transferutility.TransferState
 import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility
-import com.amazonaws.regions.Region.getRegion
 import com.amazonaws.regions.Regions
 import com.amazonaws.regions.Region
 import com.amazonaws.services.s3.AmazonS3Client
 import com.amazonaws.services.s3.model.CannedAccessControlList
 import com.example.eco.ClassRes.URIPathHelper
 import com.example.eco.R
-import com.example.eco.dataClass.LoginInfo
-import com.google.gson.Gson
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_setting_account.*
-import kotlinx.android.synthetic.main.fragment_main_view4.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -47,14 +44,22 @@ class SettingAccountActivity : AppCompatActivity() {
     val GET_GALLERY_IMAGE = 200;    // 안드로이드에서 이미지를 가져오기 상태 표시 위한 전역 변수
     var selectImageUri: Uri? = null // 선택된 이미지의 Uri
     var age = ""
+    var uri = Uri.parse("")
+    var name : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting_account)
         val pwd = intent.getStringExtra("pwd")
-        nameText_settingAccount.setText(intent.getStringExtra("name"))
+        emailText_settingAccount.setText(intent.getStringExtra("email"))
         pwd1Text_settingAccount.setText(pwd)
         pwd2Text_settingAccount.setText(pwd)
+        uri = Uri.parse(intent.getStringExtra("pic"))
+        name = loadFromInnerStorage("userInfoData.txt")
+        age = intent.getStringExtra("age").toString()
+
+        Picasso.with(applicationContext).invalidate(uri)
+        Picasso.with(applicationContext).load(uri).into(userImageView_settingAccount)
 
         // 스피너를 할당합니다.
         ArrayAdapter.createFromResource(
@@ -83,7 +88,7 @@ class SettingAccountActivity : AppCompatActivity() {
         upload.setOnClickListener {
             val uriPathHelper = URIPathHelper()
             val filePath = uriPathHelper.getPath(this, selectImageUri!!)
-            uploadWithTransferUtility(fileName = "${nameText_settingAccount.text}.jpg", file = File(filePath))
+            uploadWithTransferUtility(fileName = "${name}.jpg", file = File(filePath))
             uploadImage()
 //            API 호출 email, filename
         }
@@ -95,12 +100,12 @@ class SettingAccountActivity : AppCompatActivity() {
             val api = CoroutineScope(Dispatchers.Default).async {
                 // 보낼 데이터 json으로 만들기
                 val data = "{\n" +
-                        "    \"pic\" : \"${nameText_settingAccount.text}.jpg\"," +
-                        "    \"name\" : \"${nameText_settingAccount.text}\"" +
+                        "    \"pic\" : \"${name}\"," +
+                        "    \"name\" : \"${name}\"" +
                         "}"
                 Log.d("a",data)
-                Log.d("b","${nameText_settingAccount.text}.jpg")
-                Log.d("c","${nameText_settingAccount.text}")
+                Log.d("b","${name}.jpg")
+                Log.d("c","${name}")
                 val media = "application/json; charset=utf-8".toMediaType();
                 val body = data.toRequestBody(media)
 
@@ -122,7 +127,8 @@ class SettingAccountActivity : AppCompatActivity() {
                         // 응답이 오면 메인스레드에서 처리를 진행한다.
                         CoroutineScope(Dispatchers.Main).launch {
                             // 회원조회 응답
-                            Log.d("업로드 성공","${response.body!!.string()}")
+                            Log.d("업로드 성공", "${response.body!!.string()}")
+                            Toast.makeText(applicationContext, "업로드 성공", Toast.LENGTH_SHORT).show()
                         }
                     }
                 })
@@ -134,9 +140,9 @@ class SettingAccountActivity : AppCompatActivity() {
     private fun changeAccount() {
         CoroutineScope(Dispatchers.Main).launch {
             val api = CoroutineScope(Dispatchers.Default).async {
-                val email = loadFromInnerStorage("userInfoData.txt")
+                val email = emailText_settingAccount.text
+                Log.d("email","${email}")
                 val password = pwd1Text_settingAccount.text
-                val name = nameText_settingAccount.text
 
                 // 보낼 데이터 json으로 만들기
                 val data = "{\n" +
@@ -182,11 +188,11 @@ class SettingAccountActivity : AppCompatActivity() {
 
     }
 
-    fun loadFromInnerStorage(filename: String): String? {
+    fun loadFromInnerStorage(filename: String): String {
         //내부 저장소의 전달된 이름의 파일입력 스트림을 가져온다.
         val fileInputStream = openFileInput(filename)
         //파일의 저장된 내용을 읽어 String형태로 가져온다.
-        return fileInputStream?.reader()?.readText()
+        return fileInputStream?.reader()!!.readText()
     }
 
     private fun CheckPassword(): Boolean {

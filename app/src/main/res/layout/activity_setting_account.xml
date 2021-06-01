@@ -13,7 +13,7 @@
         android:layout_marginBottom="52dp"
         android:clickable="true"
         android:src="@drawable/user2"
-        app:layout_constraintBottom_toTopOf="@+id/nameText_settingAccount"
+        app:layout_constraintBottom_toTopOf="@+id/emailText_settingAccount"
         app:layout_constraintStart_toEndOf="@+id/textView24"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="63dp"
-        android:text="이름"
+        android:text="이메일"
         android:textColor="#2B2B2B"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/textView19"
@@ -80,8 +80,8 @@
         android:textColor="#2B2B2B"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/textView20"
-        app:layout_constraintEnd_toStartOf="@+id/nameText_settingAccount"
-        app:layout_constraintStart_toStartOf="@+id/nameText_settingAccount"
+        app:layout_constraintEnd_toStartOf="@+id/emailText_settingAccount"
+        app:layout_constraintStart_toStartOf="@+id/emailText_settingAccount"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
@@ -111,14 +111,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
     <EditText
-        android:id="@+id/nameText_settingAccount"
+        android:id="@+id/emailText_settingAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginBottom="45dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintBottom_toTopOf="@+id/pwd1Text_settingAccount"
         app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/userImageView_settingAccount" />
@@ -134,8 +133,8 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/pwd2Text_settingAccount"
         app:layout_constraintEnd_toEndOf="@+id/pwd2Text_settingAccount"
-        app:layout_constraintStart_toStartOf="@+id/nameText_settingAccount"
-        app:layout_constraintTop_toBottomOf="@+id/nameText_settingAccount" />
+        app:layout_constraintStart_toStartOf="@+id/emailText_settingAccount"
+        app:layout_constraintTop_toBottomOf="@+id/emailText_settingAccount" />
 
     <EditText
         android:id="@+id/pwd2Text_settingAccount"

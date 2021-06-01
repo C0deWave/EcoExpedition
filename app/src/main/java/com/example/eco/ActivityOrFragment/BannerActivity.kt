@@ -61,78 +61,68 @@ class BannerActivity : AppCompatActivity() {
 
     //로그인 기능을 구현합니다.
     fun Login(id: String,password: String){
-        CoroutineScope(Dispatchers.Main).launch {
 
-            val api = CoroutineScope(Dispatchers.Default).async {
-                // 보낼 데이터 json으로 만들기
-                val data = "{\n" +
-                        "    \"name\" : \"${id}\"" +
-                        "}"
+        val api = CoroutineScope(Dispatchers.Default).async {
+            // 보낼 데이터 json으로 만들기
+            val data = "{\n" +
+                    "    \"name\" : \"${id}\"" +
+                    "}"
 
-                val media = "application/json; charset=utf-8".toMediaType();
-                val body = data.toRequestBody(media)
+            val media = "application/json; charset=utf-8".toMediaType();
+            val body = data.toRequestBody(media)
 
-                // 1. 클라이언트 만들기
-                val client = OkHttpClient.Builder().build()
-                // 2. 요청
-                val req = Request.Builder()
-                        .url("https://p7s3gkde6f.execute-api.ap-northeast-2.amazonaws.com/member_get/")
-                        .put(body)
-                        .build()
-                // 3. 응답
-                client.newCall(req).enqueue(object : Callback {
-                    override fun onFailure(call: Call, e: IOException) {
+            //api 요청
+            val client = OkHttpClient.Builder().build()
+            val req = Request.Builder()
+                    .url("https://p7s3gkde6f.execute-api.ap-northeast-2.amazonaws.com/member_get/")
+                    .put(body)
+                    .build()
 
+            // 3. 응답
+            client.newCall(req).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) { }
+                override fun onResponse(call: Call, response: Response) {
+                    CoroutineScope(Dispatchers.Main).launch {
+                        // 회원조회 응답
+                        val data = response.body!!.string()
+                        loginProcess(data,id,password)
                     }
+                }
+            })
+        }
+    }
 
-                    override fun onResponse(call: Call, response: Response) {
-                        // 응답이 오면 메인스레드에서 처리를 진행한다.
-                        CoroutineScope(Dispatchers.Main).launch {
-                            // 회원조회 응답
-                            val data = response.body!!.string()
-                            Log.d("epdlxj","${data}")
-                            var rawData2 = data.substring(31,data.length-4)
-                            val res = Gson().fromJson(rawData2 , LoginInfo::class.java)
-                            if (res.pswd.equals(password)){
-                                saveToInnerStorage("${id}","userInfoData.txt")
-                                val intent = Intent(applicationContext, MainActivity::class.java)
-                                startActivity(intent)
-                            }
-                        }
-                    }
-                })
-
-            }.await()
+   fun loginProcess(data: String,id: String,password: String) {
+       Log.d("111","${data}")
+        var rawData2 = data.substring(31,data.length-4)
+       Log.d("user","${rawData2}")
+        val res = Gson().fromJson(rawData2 , LoginInfo::class.java)
+        if (res.pswd.equals(password)){
+            saveToInnerStorage("${id}","userInfoData.txt")
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 
     fun saveToInnerStorage(text:String, filename:String){
-        //내부저장소의 전달된 파일이름의 파일 출력스트림을 가져온다.
-        //MODE_APPEND = 파일에 기존의 내용 이후에 붙이는 모드입니다.
-        //MODE_PRIVATE 앱 전용으로 만들어 다른 앱에서는 접근 불가, 이미 파일이 있는 경우 기존 파일에 덮어씁니다.
         val fileOutputStream = openFileOutput(filename, Context.MODE_PRIVATE)
-        //출력 스트림에 text를 바이트로 전환하여 write한다.
         fileOutputStream.write(text.toByteArray())
-        //파일 출력 스트림을 닫는다.
         fileOutputStream.close()
     }
 
     //내부 저장소 파일의 텍스트를 불러온다.
     fun loadFromInnerStorage(filename: String): String? {
-        //내부 저장소의 전달된 이름의 파일입력 스트림을 가져온다.
         try {
             val fileInputStream :  FileInputStream? = openFileInput(filename)
             if (fileInputStream == null){
                 Log.d("파일스트림","null")
                 return ""
             }else{
-                //파일의 저장된 내용을 읽어 String형태로 가져온다.
                 return fileInputStream?.reader()?.readText()
             }
         }catch (e : Exception){
             Log.d("err","${e.stackTrace}")
         }
-
         return ""
     }
 }

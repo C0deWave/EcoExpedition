@@ -2,27 +2,33 @@ package com.example.eco.ActivityOrFragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.eco.BulitinBoardItemAdapter
+import com.example.eco.GroupItemAdapter
 import com.example.eco.R
-import com.example.eco.dataClass.BoardData
+import com.example.eco.dataClass.GroupListData
+import com.example.eco.dataClass.GroupListDataItem
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_main_view1.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import okhttp3.*
+import java.io.IOException
 
 
 class MainViewFragment1 : Fragment() {
+    var listArray:MutableList<GroupListDataItem> = mutableListOf()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var listArray:MutableList<BoardData> = mutableListOf(BoardData("ss","aa",
-                "2002-01-03","d","", "1", "cka"))
-
-        companyBoardRecyclerView_fragment1.adapter = BulitinBoardItemAdapter(listArray)
-        companyBoardRecyclerView_fragment1.layoutManager = LinearLayoutManager(activity);
+        getGroupList()
 
         floatingActionButton_fragment1.setOnClickListener {
             val intent = Intent(context, WriteBoardPageActivity::class.java)
@@ -30,12 +36,44 @@ class MainViewFragment1 : Fragment() {
         }
     }
 
-
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_main_view1, container, false)
+    }
+
+    fun getGroupList() {
+        val api = CoroutineScope(Dispatchers.Default).async {
+            val client = OkHttpClient.Builder().build()
+            val req = Request.Builder()
+                         .url("https://2km7a0qw6j.execute-api.ap-northeast-2.amazonaws.com/group_get_all/")
+                         .build()
+            // 3. 응답
+            client.newCall(req).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) { }
+                override fun onResponse(call: Call, response: Response) {
+                    CoroutineScope(Dispatchers.Main).launch {
+                        try {
+                            var da = response.body!!.string()
+                            bindAdapter(da)
+                        } catch (e: Exception) {
+                            Log.d("err", "${e.stackTrace}")
+                        }
+                    }
+                }
+            })
+        }
+    }
+
+    private fun bindAdapter(da: String) {
+        var da2 = da.substring(31, da.length - 4)
+        var data = Gson().fromJson(da2, GroupListData::class.java)
+        for (datum in data) {
+            listArray.add(datum)
+        }
+        companyBoardRecyclerView_fragment1.adapter = GroupItemAdapter(data)
+        companyBoardRecyclerView_fragment1.layoutManager = LinearLayoutManager(activity);
     }
 }
