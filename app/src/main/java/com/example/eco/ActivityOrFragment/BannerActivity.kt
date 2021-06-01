@@ -8,7 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.eco.R
 import com.example.eco.adapter.ViewPagerAdapter
-import com.example.eco.dataClass.LoginInfo
+import com.example.eco.dataClass.UserInfo
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_banner.*
 import kotlinx.coroutines.CoroutineScope
@@ -96,7 +96,7 @@ class BannerActivity : AppCompatActivity() {
        Log.d("111","${data}")
         var rawData2 = data.substring(31,data.length-4)
        Log.d("user","${rawData2}")
-        val res = Gson().fromJson(rawData2 , LoginInfo::class.java)
+        val res = Gson().fromJson(rawData2 , UserInfo::class.java)
         if (res.pswd.equals(password)){
             saveToInnerStorage("${id}","userInfoData.txt")
             val intent = Intent(applicationContext, MainActivity::class.java)

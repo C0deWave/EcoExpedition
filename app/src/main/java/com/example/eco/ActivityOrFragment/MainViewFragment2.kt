@@ -7,15 +7,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.eco.GroupItemAdapter
 import com.example.eco.R
 import com.example.eco.adapter.SnsItemAdapter
-import com.example.eco.dataClass.GroupListDataItem
 import com.example.eco.dataClass.SnsData
 import com.example.eco.dataClass.SnsListData
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.fragment_main_view1.*
 import kotlinx.android.synthetic.main.fragment_main_view2.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -35,7 +33,8 @@ class MainViewFragment2 : Fragment() {
 
         getSNSList()
 
-        personal_recyclerView.adapter = SnsItemAdapter(grouplist)
+        personal_recyclerView.adapter = SnsItemAdapter(grouplist, activity!!)
+
         personal_recyclerView.layoutManager = LinearLayoutManager(activity);
         writeBtn_fragment2.setOnClickListener {
             // 화면 변경을 구현하면 됩니다.
@@ -83,7 +82,7 @@ class MainViewFragment2 : Fragment() {
                                 for (datum in data) {
                                     grouplist.add(datum)
                                 }
-                                personal_recyclerView.adapter = SnsItemAdapter(data)
+                                personal_recyclerView.adapter = SnsItemAdapter(data,activity!!)
                                 personal_recyclerView.layoutManager = LinearLayoutManager(activity);
 
                             }catch (e : Exception){

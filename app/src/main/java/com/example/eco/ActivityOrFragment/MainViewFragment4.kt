@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.eco.R
-import com.example.eco.dataClass.LoginInfo
+import com.example.eco.dataClass.UserInfo
 import com.google.gson.Gson
 import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.NetworkPolicy
@@ -116,7 +116,7 @@ class MainViewFragment4 : Fragment() {
                         try {
                             val data = response.body!!.string()
                             var rawData2 = data.substring(31, data.length - 4)
-                            val res = Gson().fromJson(rawData2, LoginInfo::class.java)
+                            val res = Gson().fromJson(rawData2, UserInfo::class.java)
                             emailText_fragment4.text = res.email
                             userNameText_fragment4.text = res.name
                             pwd = res.pswd
