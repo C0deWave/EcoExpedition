@@ -90,7 +90,11 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
 
         //후원기능 추가하기
         donateBtn_detailBoard.setOnClickListener {
-            groupDonation()
+            if (donaText_detailBoard.text != "0원"){
+                groupDonation()
+            }else{
+                Toast.makeText(applicationContext, "후원할 돈이 없습니다.", Toast.LENGTH_SHORT).show()
+            }
         }
 
         //그룹 수정버튼
@@ -120,8 +124,44 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
     }
 
     private fun groupDonation() {
+        // 보낼 데이터 json으로 만들기
+        val data = "{ " +
+                "    \"group_name\" : \"${group_name}\"," +
+                "    \"dona\" : ${dona}," +
+                "    \"dona_all\" : ${dona_all}" +
+                "}"
+        Log.d("json", "$data")
+        val media = "application/json; charset=utf-8".toMediaType();
+        val body = data.toRequestBody(media)
 
+        // 1. 클라이언트 만들기
+        val client = OkHttpClient.Builder().build()
+        // 2. 요청
+        val req = Request.Builder()
+                .url("https://l1tm80coq1.execute-api.ap-northeast-2.amazonaws.com/put_donation/donation_REST")
+                .put(body)
+                .build()
+
+        // 3. 응답
+        client.newCall(req).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) { }
+            override fun onResponse(call: Call, response: Response) {
+                // 응답이 오면 메인스레드에서 처리를 진행한다.
+                CoroutineScope(Dispatchers.Main).launch {
+                    // 회원조회 응답
+                    try {
+                        val data = response.body!!.string()
+                        Log.d("기부완료", "$data")
+                        donaAllText_detailBoard.text = (dona.toInt() + dona_all.toInt()).toString() + "원"
+                        donaText_detailBoard.text = "0원"
+                    } catch (e: Exception) {
+                        Log.d("fragment4", "${e.stackTrace}")
+                    }
+                }
+            }
+        })
     }
+
 
     private fun deleteGroup() {val api = CoroutineScope(Dispatchers.Default).async {
         // 보낼 데이터 json으로 만들기
@@ -200,7 +240,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
     }
 
     private fun goRewritePage() {
-        val intent = Intent(this, WriteBoardPageActivity::class.java)
+        val intent = Intent(this, MakeGroupActivity::class.java)
         intent.putExtra("Key","true")
         intent.putExtra("group_name", group_name)
         intent.putExtra("master_name",master_name)
@@ -355,8 +395,47 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                         try {
                             val data = response.body!!.string()
                             Log.d("미팅만들기", "${data}")
-                            Toast.makeText(applicationContext, "미팅 일정을 설정했습니다.", Toast.LENGTH_SHORT).show()
-                            goMain()
+                            meetingDate_detailBoard.text = meeting_date
+                            meetingType_detailBoard.text = meeting_type
+                            meetingIntroText_detailBoard.text = meeting_intro
+                        } catch (e: Exception) {
+                            Log.d("fragment4", "${e.stackTrace}")
+                        }
+                    }
+                }
+            })
+        }
+
+        val api2 = CoroutineScope(Dispatchers.Default).async {
+            // 보낼 데이터 json으로 만들기
+            val data = "{\n" +
+                    "    \"group_name\" : \"${group_name}\"," +
+                    "    \"dona\" : \"${participant?.size?.times(1000)}\"" +
+                    "}"
+            Log.d("후원예정금액", "${participant?.size?.times(1000)}")
+
+            val media = "application/json; charset=utf-8".toMediaType();
+            val body = data.toRequestBody(media)
+
+            // 1. 클라이언트 만들기
+            val client = OkHttpClient.Builder().build()
+            val req = Request.Builder()
+                    .url("https://9wqj24cl0k.execute-api.ap-northeast-2.amazonaws.com/group_dona_update/")
+                    .put(body)
+                    .build()
+
+            // 3. 응답
+            client.newCall(req).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {}
+                override fun onResponse(call: Call, response: Response) {
+                    // 응답이 오면 메인스레드에서 처리를 진행한다.
+                    CoroutineScope(Dispatchers.Main).launch {
+                        // 회원조회 응답
+                        try {
+                            val data = response.body!!.string()
+                            Log.d("후원금 추가", "${data}")
+                            donaText_detailBoard.text = participant?.size?.times(1000).toString() + "원"
+                            dona = participant?.size?.times(1000).toString()
                         } catch (e: Exception) {
                             Log.d("fragment4", "${e.stackTrace}")
                         }

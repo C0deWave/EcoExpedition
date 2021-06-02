@@ -37,7 +37,7 @@ import java.io.IOException
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class WriteBoardPageActivity : AppCompatActivity() {
+class MakeGroupActivity : AppCompatActivity() {
 
 
     val GET_GALLERY_IMAGE = 200;    // 안드로이드에서 이미지를 가져오기 상태 표시 위한 전역 변수

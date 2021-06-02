@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.eco.GroupItemAdapter
@@ -32,7 +31,7 @@ class MainViewFragment1 : Fragment() {
         getGroupList()
 
         floatingActionButton_fragment1.setOnClickListener {
-            val intent = Intent(context, WriteBoardPageActivity::class.java)
+            val intent = Intent(context, MakeGroupActivity::class.java)
             startActivity(intent)
         }
 

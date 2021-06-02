@@ -19,7 +19,7 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".ActivityOrFragment.WriteSnsActivity"></activity>
         <activity android:name=".ActivityOrFragment.SettingAccountActivity" />
-        <activity android:name=".ActivityOrFragment.WriteBoardPageActivity" />
+        <activity android:name=".ActivityOrFragment.MakeGroupActivity" />
         <activity android:name=".ActivityOrFragment.DetailBulitInBoardActivity" />
         <activity android:name=".ActivityOrFragment.MainActivity" />
         <activity android:name=".ActivityOrFragment.MakeAccountActivity" />
