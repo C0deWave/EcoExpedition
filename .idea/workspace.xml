@@ -33,17 +33,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bc86a66-5a99-4a61-89ed-360ebfa53a8b" name="Default Changelist" comment="2021.06.02 모임 상세보기 참가자 어댑터구현">
+    <list default="true" id="2bc86a66-5a99-4a61-89ed-360ebfa53a8b" name="Default Changelist" comment="2021.06.02 모임리스트에 지역 추가">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_accessibility_new_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_calendar_today_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_message_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eco/adapter/GroupItemAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eco/adapter/GroupItemAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/bulit_board_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/bulit_board_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail__bulit_in_board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail__bulit_in_board.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3_API_30]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -460,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622646314397</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="2021.06.02 모임리스트에 지역 추가">
+      <created>1622646727421</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1622646727421</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -489,7 +499,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="2021.05.21 상세게시판 구현v2&#10;- api 연동 완료" />
     <MESSAGE value="2021.05.21 회원가입과 로그인 및 배너v1.3&#10;- 회원가입시 api연동&#10;- 회원 가입후 바로 메인 화면으로 이동하게 구현&#10;- 일반 로그인 구현&#10;- 자동 로그인 구현&#10;- 로그아웃 구현&#10;- 로그아웃시 뒤로가기를 이용한 메인으로 들어가기 방지&#10;- 스피너에서 나이 지정시 에러 해결&#10;&#10;+&#10;- 자동 로그인시 처음 불러올 데이터 없을 때의 에러 해결" />
     <MESSAGE value="2021.05.21 클래스,어댑터,데이터 클래스 분리" />
     <MESSAGE value="2021.05.21 상세게시판 구현v2.1&#10;- api 연동 완료&#10;&#10;+&#10;- 그룹 참가하기 기능 구현" />
@@ -514,7 +523,8 @@
     <MESSAGE value="2021.06.02 UI 1차개선" />
     <MESSAGE value="2021.06.02 중복확인 구현" />
     <MESSAGE value="2021.06.02 모임 상세보기 참가자 어댑터구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="2021.06.02 모임 상세보기 참가자 어댑터구현" />
+    <MESSAGE value="2021.06.02 모임리스트에 지역 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="2021.06.02 모임리스트에 지역 추가" />
   </component>
   <component name="WindowStateProjectService">
     <state x="600" y="181" key="#Auto_Import" timestamp="1622554654019">
@@ -627,10 +637,10 @@
     </state>
     <state x="337" y="101" key="SettingsEditor/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621768361460" />
     <state x="2235" y="104" key="SettingsEditor/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621515279874" />
-    <state x="396" y="246" key="Vcs.Push.Dialog.v2" timestamp="1622646319846">
+    <state x="396" y="246" key="Vcs.Push.Dialog.v2" timestamp="1622646735751">
       <screen x="0" y="25" width="1792" height="1095" />
     </state>
-    <state x="396" y="246" key="Vcs.Push.Dialog.v2/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622646319846" />
+    <state x="396" y="246" key="Vcs.Push.Dialog.v2/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622646735751" />
     <state x="2316" y="246" key="Vcs.Push.Dialog.v2/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621652764910" />
     <state x="2872" y="332" key="chooseDestDirectoryDialog" timestamp="1621347949544">
       <screen x="1920" y="25" width="1792" height="1095" />
@@ -643,10 +653,10 @@
     <state x="650" y="468" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622642928560" />
     <state x="2570" y="468" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1920.1055/1920.25.1792.1095@1920.25.1792.1095" timestamp="1621652623553" />
     <state x="696" y="452" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1920.1055@0.25.1920.1055" timestamp="1621478674160" />
-    <state x="-1920" y="25" width="1906" height="1055" maximized="true" key="dock-window-1" timestamp="1622644085165">
+    <state x="-1920" y="25" width="1906" height="1055" maximized="true" key="dock-window-1" timestamp="1622647115621">
       <screen x="-1920" y="25" width="1920" height="1055" />
     </state>
-    <state x="-1920" y="25" width="1906" height="1055" maximized="true" key="dock-window-1/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622644085165" />
+    <state x="-1920" y="25" width="1906" height="1055" maximized="true" key="dock-window-1/-1920.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1622647115621" />
     <state x="0" y="65" width="1792" height="1055" key="dock-window-1/0.25.1792.1095@0.25.1792.1095" timestamp="1622624254222" />
     <state x="135" y="1105" width="1778" height="1088" maximized="true" key="dock-window-1/0.25.1920.1055/128.1105.1792.1095@0.25.1920.1055" timestamp="1621761111226" />
     <state x="0" y="25" width="1799" height="1055" maximized="true" key="dock-window-1/0.25.1920.1055/1920.25.1792.1095@0.25.1920.1055" timestamp="1621512547752" />
