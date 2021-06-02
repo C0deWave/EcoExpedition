@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.eco.GroupItemAdapter
@@ -34,7 +35,18 @@ class MainViewFragment1 : Fragment() {
             val intent = Intent(context, WriteBoardPageActivity::class.java)
             startActivity(intent)
         }
-    }
+
+
+        //지역 검색 버튼을 눌렀을 때
+        searchBtn_fragment1.setOnClickListener {
+            val temp = listArray.filter { it: GroupListDataItem -> it.loc.startsWith("${searchText_fragment1.text}") }
+            Log.d("","${listArray}")
+            companyBoardRecyclerView_fragment1.adapter = GroupItemAdapter(temp as MutableList<GroupListDataItem>)
+            companyBoardRecyclerView_fragment1.layoutManager = LinearLayoutManager(activity);
+            }
+        }
+
+
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -73,7 +85,7 @@ class MainViewFragment1 : Fragment() {
         for (datum in data) {
             listArray.add(datum)
         }
-        companyBoardRecyclerView_fragment1.adapter = GroupItemAdapter(data)
+        companyBoardRecyclerView_fragment1.adapter = GroupItemAdapter(listArray)
         companyBoardRecyclerView_fragment1.layoutManager = LinearLayoutManager(activity);
     }
 }

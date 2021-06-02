@@ -20,6 +20,7 @@ import com.example.eco.R
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
 import kotlinx.android.synthetic.main.activity_write_sns.*
+import kotlinx.android.synthetic.main.fragment_main_view1.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
