@@ -61,36 +61,21 @@ class SettingAccountActivity : AppCompatActivity() {
         Picasso.with(applicationContext).invalidate(uri)
         Picasso.with(applicationContext).load(uri).into(userImageView_settingAccount)
 
-        // 스피너를 할당합니다.
-        ArrayAdapter.createFromResource(
-                this,
-                R.array.old,
-                android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-            spinner2.adapter = adapter
-            var listener = SpinnerListener()
-            spinner2.onItemSelectedListener = listener
-        }
-
         userImageView_settingAccount.setOnClickListener {
             getImage()
         }
 
         changeUserInfo_settingAccount.setOnClickListener {
             if (CheckPassword()){
-                changeAccount()
+                if (selectImageUri != null){
+                    val uriPathHelper = URIPathHelper()
+                    val filePath = uriPathHelper.getPath(this, selectImageUri!!)
+                    uploadWithTransferUtility(fileName = "${name}.jpg", file = File(filePath))
+                    uploadImage()
+                }else{
+                    changeAccount()
+                }
             }
-        }
-        // 이미지 업로드 (업데이트)
-        upload.setOnClickListener {
-            val uriPathHelper = URIPathHelper()
-            val filePath = uriPathHelper.getPath(this, selectImageUri!!)
-            uploadWithTransferUtility(fileName = "${name}.jpg", file = File(filePath))
-            uploadImage()
-//            API 호출 email, filename
         }
     }
 
@@ -104,7 +89,6 @@ class SettingAccountActivity : AppCompatActivity() {
                         "    \"name\" : \"${name}\"" +
                         "}"
                 Log.d("a",data)
-                Log.d("b","${name}.jpg")
                 Log.d("c","${name}")
                 val media = "application/json; charset=utf-8".toMediaType();
                 val body = data.toRequestBody(media)
@@ -119,16 +103,14 @@ class SettingAccountActivity : AppCompatActivity() {
 
                 // 3. 응답
                 client.newCall(req).enqueue(object : Callback {
-                    override fun onFailure(call: Call, e: IOException) {
-
-                    }
-
+                    override fun onFailure(call: Call, e: IOException) { }
                     override fun onResponse(call: Call, response: Response) {
                         // 응답이 오면 메인스레드에서 처리를 진행한다.
                         CoroutineScope(Dispatchers.Main).launch {
                             // 회원조회 응답
                             Log.d("업로드 성공", "${response.body!!.string()}")
                             Toast.makeText(applicationContext, "업로드 성공", Toast.LENGTH_SHORT).show()
+                            changeAccount()
                         }
                     }
                 })
@@ -149,9 +131,6 @@ class SettingAccountActivity : AppCompatActivity() {
                         "    \"email\" : \"${email}\",\n" +
                         "    \"name\" : \"${name}\",\n" +
                         "    \"pswd\" : \"${password}\",\n" +
-                        "    \"age\" : \"${age}\",\n" +
-                        "    \"d_amount\" : \"${intent.getStringExtra("doantion")}\",\n" +
-                        "    \"pic\" : \"\",\n" +
                         "    \"p_group\" : \"${intent.getStringExtra("participant")}\"\n" +
                         "}"
 
@@ -167,14 +146,12 @@ class SettingAccountActivity : AppCompatActivity() {
                         .build()
                 // 3. 응답
                 client.newCall(req).enqueue(object : Callback {
-                    override fun onFailure(call: Call, e: IOException) {
-
-                    }
-
+                    override fun onFailure(call: Call, e: IOException) { }
                     override fun onResponse(call: Call, response: Response) {
                         // 응답이 오면 메인스레드에서 처리를 진행한다.
                         CoroutineScope(Dispatchers.Main).launch {
                             Toast.makeText(applicationContext, "계정변경완료!!", Toast.LENGTH_SHORT).show()
+                            Log.d("settingAccount","${response.body!!.string()}")
                             val intent = Intent(applicationContext, MainActivity::class.java)
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

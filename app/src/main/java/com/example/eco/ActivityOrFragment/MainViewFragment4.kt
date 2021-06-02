@@ -33,7 +33,6 @@ class MainViewFragment4 : Fragment() {
     var donation = ""
     var partcipantGroup = ""
     var uri : Uri = Uri.parse("")
-    var age = ""
 
     override fun onResume() {
         super.onResume()
@@ -62,7 +61,6 @@ class MainViewFragment4 : Fragment() {
             intent.putExtra("doantion", donation)
             intent.putExtra("participant", partcipantGroup)
             intent.putExtra("pic",uri.toString())
-            intent.putExtra("age",age)
 
             startActivity(intent)
         }
@@ -115,13 +113,16 @@ class MainViewFragment4 : Fragment() {
                         // 회원조회 응답
                         try {
                             val data = response.body!!.string()
+                            Log.d("응답", "${data}")
                             var rawData2 = data.substring(31, data.length - 4)
                             val res = Gson().fromJson(rawData2, UserInfo::class.java)
                             emailText_fragment4.text = res.email
                             userNameText_fragment4.text = res.name
                             pwd = res.pswd
-                            partcipantGroup = res.p_group.toString()
-                            Log.d("pwd", "${pwd}")
+                            for (data in res.p_group){
+                                partcipantGroup += data+"\n"
+                            }
+                            Log.d("참가 그룹","${partcipantGroup}")
 
                             //uri이미지 할당하기
                             uri = Uri.parse(res.pic)
@@ -134,11 +135,11 @@ class MainViewFragment4 : Fragment() {
                                     .networkPolicy(NetworkPolicy.NO_CACHE)
                                     .into(userImageView_fragment4)
 
-                            if (res.p_group.isEmpty()) {
+                            if (partcipantGroup.isEmpty()) {
                                 groupListText_fragment4.text =
                                         "아직 참가중인 모임이 없습니다.\n모임에 참여해 환경운동을 해보는건 어떨까요?"
                             } else {
-                                groupListText_fragment4.text = res.toString()
+                                groupListText_fragment4.text = partcipantGroup
                             }
                         }catch (e : Exception){
                             Log.d("fragment4","${e.stackTrace}")
