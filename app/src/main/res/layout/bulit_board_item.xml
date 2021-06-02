@@ -39,8 +39,18 @@
         android:text="제목 부분입니다.ㅇ"
         android:textColor="#000000"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView"
         app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/loc_boardItem" />
+
+    <TextView
+        android:id="@+id/loc_boardItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/nanumsquareregular"
+        android:text="지역"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/titleText_BoardItem"
         app:layout_constraintTop_toTopOf="@+id/cardView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
