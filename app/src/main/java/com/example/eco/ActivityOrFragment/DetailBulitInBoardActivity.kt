@@ -344,6 +344,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                 var strDate = "";
                 strDate += (i1+1).toString()+"월 "
                 strDate += (i2).toString()+"일 "
+
                 Log.d("미팅 일자", "$strDate")
                 meeting_date = strDate
                 showTimePicker()
@@ -358,7 +359,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
     private fun showTimePicker() {
         var mTimeSetListener = TimePickerDialog.OnTimeSetListener() { timePicker: TimePicker, i: Int, i1: Int ->
             Log.d("시간", "$i:$i1")
-            meeting_date += "${i}시 ${i1}분"
+            meeting_date += "${i}:${i1}"
             Log.d("시간 추가", meeting_date)
             showContextDialog()
         }
@@ -500,13 +501,13 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
         loc = intent.getStringExtra("loc")!!
 
         groupName_detailBoard.text = group_name
-        masterName_detailBoard.text = master_name
+        masterName_detailBoard.text = "모임장 : " + master_name
         intro_detailBoard.text = intro
         meetingDate_detailBoard.text = meeting_date
-        meetingType_detailBoard.text = meeting_type
+        meetingType_detailBoard.text = meeting_type+" 정모"
         meetingIntroText_detailBoard.text = meeting_intro
-        donaText_detailBoard.text = dona + "원"
-        donaAllText_detailBoard.text = dona_all + "원"
+        donaAllText_detailBoard.text = "지금까지 우리가 후원한 금액은 "+ dona_all + "원 이에요"
+        donaText_detailBoard.text = "앞으로 우리가 후원할 금액은 "+ dona + "원 이에요"
         locText_detailBoard.text = loc
 
         // 참가자 구현
@@ -682,10 +683,10 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
     // 미세먼지 단계에 따른 단계 반환
     private fun dustGrade(pm10Grade: String): CharSequence? {
         when (pm10Grade) {
-            "1" -> return "미세먼지 : 좋음"
-            "2" -> return "미세먼지 : 보통"
-            "3" -> return "미세먼지 : 나쁨"
-            "4" -> return "미세먼지 : 매우나쁨"
+            "1" -> return "오늘의 미세먼지는 좋아요!"
+            "2" -> return "오늘의 미세먼지는 평범해요."
+            "3" -> return "오늘의 미세먼지는 나빠요."
+            "4" -> return "오늘의 미세먼지는 아주 나빠요."
             else -> {
                 return ""
             }
