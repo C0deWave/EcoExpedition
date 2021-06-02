@@ -88,6 +88,11 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
             showDialog()
         }
 
+        //후원기능 추가하기
+        donateBtn_detailBoard.setOnClickListener {
+            groupDonation()
+        }
+
         //그룹 수정버튼
         rewriteBtn_detailBoard.setOnClickListener {
             goRewritePage()
@@ -95,7 +100,13 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
 
         //참가하기 버튼을 눌렀을때
        participantbtn_detailBoard.setOnClickListener {
-            addPartcipant()
+           if (participantbtn_detailBoard.text == "그룹가입") {
+               addPartcipant()
+           }else if (participantbtn_detailBoard.text == "그룹탈퇴"){
+               deleteParticipant()
+           }else{
+               deleteGroup()
+           }
         }
 
         //위도 경도 값이 퍼미션이 허가되지 않았을 때
@@ -105,6 +116,86 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
             return
         }else{
             getTmLocation()
+        }
+    }
+
+    private fun groupDonation() {
+
+    }
+
+    private fun deleteGroup() {val api = CoroutineScope(Dispatchers.Default).async {
+        // 보낼 데이터 json으로 만들기
+        val data = "{ " +
+                "    \"group_name\" : \"${group_name}\"" +
+                "}"
+        Log.d("json", "$data")
+        val media = "application/json; charset=utf-8".toMediaType();
+        val body = data.toRequestBody(media)
+
+        // 1. 클라이언트 만들기
+        val client = OkHttpClient.Builder().build()
+        // 2. 요청
+        val req = Request.Builder()
+                .url("https://7c22da6q54.execute-api.ap-northeast-2.amazonaws.com/group_delete")
+                .put(body)
+                .build()
+
+        // 3. 응답
+        client.newCall(req).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) { }
+            override fun onResponse(call: Call, response: Response) {
+                // 응답이 오면 메인스레드에서 처리를 진행한다.
+                CoroutineScope(Dispatchers.Main).launch {
+                    // 회원조회 응답
+                    try {
+                        val data = response.body!!.string()
+                        Log.d("그룹해체", "$data")
+                        goMain()
+                    } catch (e: Exception) {
+                        Log.d("fragment4", "${e.stackTrace}")
+                    }
+                }
+            }
+        })
+    }
+    }
+
+    private fun deleteParticipant() {
+        val api = CoroutineScope(Dispatchers.Default).async {
+            // 보낼 데이터 json으로 만들기
+            val data = "{\n" +
+                    "    \"name\" : \"${name}\"," +
+                    "    \"group_name\" : \"${group_name}\"" +
+                    "}"
+            Log.d("json", "$data")
+            val media = "application/json; charset=utf-8".toMediaType();
+            val body = data.toRequestBody(media)
+
+            // 1. 클라이언트 만들기
+            val client = OkHttpClient.Builder().build()
+            // 2. 요청
+            val req = Request.Builder()
+                    .url("https://f8nl26nr58.execute-api.ap-northeast-2.amazonaws.com/when_member_out_group/")
+                    .put(body)
+                    .build()
+
+            // 3. 응답
+            client.newCall(req).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) { }
+                override fun onResponse(call: Call, response: Response) {
+                    // 응답이 오면 메인스레드에서 처리를 진행한다.
+                    CoroutineScope(Dispatchers.Main).launch {
+                        // 회원조회 응답
+                        try {
+                            val data = response.body!!.string()
+                            Log.d("탈퇴하기", "$data")
+                            goMain()
+                        } catch (e: Exception) {
+                            Log.d("fragment4", "${e.stackTrace}")
+                        }
+                    }
+                }
+            })
         }
     }
 
@@ -207,7 +298,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
         oDialog.setTitle("미팅 내용을 입력해주세요.")
         oDialog.setView(view)
         oDialog.setCancelable(true)
-        oDialog.setPositiveButton("선택", DialogInterface.OnClickListener() { dialogInterface: DialogInterface, i: Int ->
+        oDialog.setPositiveButton("확인", DialogInterface.OnClickListener() { dialogInterface: DialogInterface, i: Int ->
             Log.d("text", "${view.text}")
             meeting_intro = view.text.toString()
             //최종 확인하기
@@ -223,7 +314,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
 
         oDialog.setTitle("해당 일정으로 하시겠습니까?")
         oDialog.setCancelable(true)
-        oDialog.setPositiveButton("선택", DialogInterface.OnClickListener() { dialogInterface: DialogInterface, i: Int ->
+        oDialog.setPositiveButton("확인", DialogInterface.OnClickListener() { dialogInterface: DialogInterface, i: Int ->
             Log.d("", "일정 업데이트 하기")
             makeMeeting()
         })
@@ -265,7 +356,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                             val data = response.body!!.string()
                             Log.d("미팅만들기", "${data}")
                             Toast.makeText(applicationContext, "미팅 일정을 설정했습니다.", Toast.LENGTH_SHORT).show()
-
+                            goMain()
                         } catch (e: Exception) {
                             Log.d("fragment4", "${e.stackTrace}")
                         }
@@ -339,10 +430,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
 
             // 3. 응답
             client.newCall(req).enqueue(object : Callback {
-                override fun onFailure(call: Call, e: IOException) {
-
-                }
-
+                override fun onFailure(call: Call, e: IOException) { }
                 override fun onResponse(call: Call, response: Response) {
                     // 응답이 오면 메인스레드에서 처리를 진행한다.
                     CoroutineScope(Dispatchers.Main).launch {
@@ -350,7 +438,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                         try {
                             val data = response.body!!.string()
                             Log.d("참가하기", "$data")
-
+                            goMain()
                         } catch (e: Exception) {
                             Log.d("fragment4", "${e.stackTrace}")
                         }
@@ -486,6 +574,12 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                 return ""
             }
         }
+    }
+
+    fun goMain(){
+        val intent = Intent(applicationContext, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(intent)
     }
 
     //내부 저장소 파일의 텍스트를 불러온다.

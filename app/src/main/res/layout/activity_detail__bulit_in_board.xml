@@ -24,8 +24,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/nanumsquarerxtrabold"
                 android:text="참가 그룹 명"
-                android:textSize="24sp" />
+                android:textSize="36sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -37,19 +38,22 @@
                     android:id="@+id/masterName_detailBoard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="16dp"
                     android:layout_weight="0.5"
-                    android:text="그룹장 이름" />
+                    android:fontFamily="@font/nanumsquarerxtrabold"
+                    android:text="그룹장 이름"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/dustTextView_detaailBuiltin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_weight="0.5"
+                    android:fontFamily="@font/nanumsquarerxtrabold"
                     android:gravity="end"
-                    android:text="미세먼지 농도" />
+                    android:text="미세먼지 농도"
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
@@ -62,48 +66,93 @@
                 app:srcCompat="@drawable/banner2" />
 
             <TextView
+                android:id="@+id/textView21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/nanumsquarerxtrabold"
+                android:text="지역"
+                android:textSize="24sp" />
+
+            <TextView
                 android:id="@+id/locText_detailBoard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="지역" />
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/nanumsquarerxtrabold"
+                android:text="지역"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/nanumsquarerxtrabold"
+                android:text="소개글 : "
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/intro_detailBoard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="4dp"
-                android:text="소개글1 \n 소개글2 \n 소개글3" />
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/nanumsquarerxtrabold"
+                android:text="소개글1 \n 소개글2 \n 소개글3"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textView15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="그룹 후원금액" />
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/nanumsquarerxtrabold"
+                android:text="그룹 후원금액"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/donaAllText_detailBoard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/nanumsquarerxtrabold"
+                android:text="TextView"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textView25"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="후원 예정 금액" />
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/nanumsquarerxtrabold"
+                android:text="후원 예정 금액"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/donaText_detailBoard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/nanumsquarerxtrabold"
+                android:text="TextView"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textView27"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/nanumsquarerxtrabold"
                 android:text="미팅일정"
                 android:textSize="24sp" />
 
@@ -114,6 +163,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nanumsquarerxtrabold"
                 android:text="미팅 일정"
                 android:textSize="18sp" />
 
@@ -122,6 +172,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/nanumsquarerxtrabold"
                 android:text="미팅 타입" />
 
             <TextView
@@ -129,6 +181,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/nanumsquarerxtrabold"
                 android:text="미팅 소개"
                 android:textSize="18sp" />
 
@@ -137,6 +191,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/nanumsquarerxtrabold"
                 android:text="참가자 리스트"
                 android:textSize="24sp" />
 
@@ -147,6 +203,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nanumsquarerxtrabold"
                 android:text="참가자 이름\n\n\n\nssdsdd" />
 
             <Button

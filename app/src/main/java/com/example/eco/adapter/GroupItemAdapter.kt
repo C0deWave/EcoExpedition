@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eco.ActivityOrFragment.DetailBulitInBoardActivity
 import com.example.eco.dataClass.GroupListDataItem
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.bulit_board_item.view.*
 
@@ -33,6 +35,8 @@ class BoardItem(itemView  : View) : RecyclerView.ViewHolder(itemView){
         //이미지 로딩
         Picasso.with(itemView.context)
                 .load(Uri.parse(boardData.group_pic))
+                .memoryPolicy(MemoryPolicy.NO_CACHE)
+                .networkPolicy(NetworkPolicy.NO_CACHE)
                 .into(itemView.itemImage)
 
         itemView.builtInBoard_item.setOnClickListener {
