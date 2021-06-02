@@ -14,6 +14,8 @@ import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import com.example.eco.ClassRes.URIPathHelper
 import com.example.eco.R
+import com.example.eco.dataClass.UserInfo
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_make_account.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,6 +33,7 @@ import java.io.IOException
 class MakeAccountActivity : AppCompatActivity() {
 
     var age = ""
+    var isVaild = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,14 +49,65 @@ class MakeAccountActivity : AppCompatActivity() {
 
         // 회원가입 버튼
         signInButton_MakeAccount.setOnClickListener {
-            if (CheckPassword()){
+            if (CheckPassword() && isVaild){
                 makeAccount()
+            }else{
+                Toast.makeText(applicationContext, "비밀번호 또는 아이디를 중복확인해 주세요", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        //중복확인
+        idCheckBtn_makeAccount.setOnClickListener {
+            checkName()
         }
 
         // 동적으로 비밀번호 확인하는 기능
         passwordText2_MakeAccount.doAfterTextChanged { isRightPassword() }
         passwordText1_MakeAccount.doAfterTextChanged { isRightPassword() }
+    }
+
+    private fun checkName() {
+        val api = CoroutineScope(Dispatchers.Default).async {
+            // 보낼 데이터 json으로 만들기
+            val data = "{\n" +
+                    "    \"name\" : \"${editTextTextPersonName4.text}\"" +
+                    "}"
+
+            val media = "application/json; charset=utf-8".toMediaType();
+            val body = data.toRequestBody(media)
+
+            // 1. 클라이언트 만들기
+            val client = OkHttpClient.Builder().build()
+            // 2. 요청
+            val req = Request.Builder()
+                    .url("https://p7s3gkde6f.execute-api.ap-northeast-2.amazonaws.com/member_get/")
+                    .put(body)
+                    .build()
+
+            // 3. 응답
+            client.newCall(req).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {}
+                override fun onResponse(call: Call, response: Response) {
+                    // 응답이 오면 메인스레드에서 처리를 진행한다.
+                    CoroutineScope(Dispatchers.Main).launch {
+                        // 회원조회 응답
+                        try {
+                            val data = response.body!!.string()
+                            Log.d("응답", "${data}")
+                            var rawData2 = data.substring(31, data.length - 4)
+                            val res = Gson().fromJson(rawData2, UserInfo::class.java)
+                            isVaild = false
+                            Toast.makeText(applicationContext, "이미 있는 아이디입니다.", Toast.LENGTH_SHORT).show()
+                        } catch (e: Exception) {
+                            isVaild = true
+                            Toast.makeText(applicationContext, "사용가능한 아이디입니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            })
+
+        }
+
     }
 
     private fun makeAccount() {
