@@ -74,6 +74,7 @@ class MakeGroupActivity : AppCompatActivity() {
             val uriPathHelper = URIPathHelper()
             val filePath = selectImageUri?.let { it1 -> uriPathHelper?.getPath(this, it1) }
             Toast.makeText(this, "잠시만 기다려 주세요.", Toast.LENGTH_SHORT).show()
+            TODO("ssssssss")
             uploadWithTransferUtility(fileName = "${groupNameText_writeBoard.text}.jpg", file = File(filePath))
             uploadImage()
         }
@@ -158,9 +159,43 @@ class MakeGroupActivity : AppCompatActivity() {
                 override fun onResponse(call: Call, response: Response) {
                     // 응답이 오면 메인스레드에서 처리를 진행한다.
                     CoroutineScope(Dispatchers.Main).launch {
+                        addGroupNameToAccount()
+                    }
+                }
+            })
+        }
+    }
+
+    private fun addGroupNameToAccount() {
+        val api = CoroutineScope(Dispatchers.Default).async {
+            // 보낼 데이터 json으로 만들기
+            val data = "{\n" +
+                    "    \"name\" : \"${name}\"," +
+                    "    \"group_name\" : \"${groupNameText_writeBoard.text}\"" +
+                    "}"
+            Log.d("json", "$data")
+            val media = "application/json; charset=utf-8".toMediaType();
+            val body = data.toRequestBody(media)
+
+            // 1. 클라이언트 만들기
+            val client = OkHttpClient.Builder().build()
+            // 2. 요청
+            val req = Request.Builder()
+                    .url("https://uobq7uyhte.execute-api.ap-northeast-2.amazonaws.com/when_member_join_group/")
+                    .put(body)
+                    .build()
+
+            // 3. 응답
+            client.newCall(req).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) { }
+                override fun onResponse(call: Call, response: Response) {
+                    // 응답이 오면 메인스레드에서 처리를 진행한다.
+                    CoroutineScope(Dispatchers.Main).launch {
+                        // 회원조회 응답
+                        val data = response.body!!.string()
+                        Log.d("참가하기", "$data")
                         Toast.makeText(applicationContext, "그룹 생성 완료", Toast.LENGTH_SHORT).show()
-                        Log.d("그룹생성 완료","${response.body!!.string()}")
-                        val intent = Intent(applicationContext, MainActivity::class.java)
+                        val intent = Intent(application, MainActivity::class.java)
                         startActivity(intent)
                     }
                 }

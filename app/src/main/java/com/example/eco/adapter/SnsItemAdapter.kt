@@ -126,7 +126,7 @@ class SnsItem(itemView: View, coroutineScope: FragmentActivity) : RecyclerView.V
                         // 회원조회 응답
                         try {
                             val data = response.body!!.string()
-
+                            Log.d("좋아요 응답","${data}")
                         }catch (e : Exception){
                             Log.d("fragment4","${e.stackTrace}")
                         }

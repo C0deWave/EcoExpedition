@@ -43,7 +43,7 @@ class WriteSnsActivity : AppCompatActivity() {
     var writer : String? = ""
 
     val current = LocalDateTime.now()
-    val formatter = DateTimeFormatter.ISO_DATE
+    val formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss")
     val formatted = current.format(formatter)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -97,7 +97,8 @@ class WriteSnsActivity : AppCompatActivity() {
                     "\"sns_name\" : \"${snsTitle_WriteSns.text}\"," +
                     "\"sns_pic\" : \"${writer}${formatted}\"," +
                     "\"sns_intro\" : \"${snsIntro_WriteSns.text}\"," +
-                    "\"name\" : \"${writer}\"" +
+                    "\"name\" : \"${writer}\"," +
+                    "\"date\" : ${formatted}" +
                     "}"
             Log.d("sns 만들기" , "${data}")
             val media = "application/json; charset=utf-8".toMediaType();

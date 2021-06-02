@@ -127,13 +127,12 @@ class SettingAccountActivity : AppCompatActivity() {
                 val password = pwd1Text_settingAccount.text
 
                 // 보낼 데이터 json으로 만들기
-                val data = "{\n" +
-                        "    \"email\" : \"${email}\",\n" +
-                        "    \"name\" : \"${name}\",\n" +
-                        "    \"pswd\" : \"${password}\",\n" +
-                        "    \"p_group\" : \"${intent.getStringExtra("participant")}\"\n" +
+                val data = "{" +
+                        "    \"email\" : \"${email}\"," +
+                        "    \"name\" : \"${name}\"," +
+                        "    \"pswd\" : \"${password}\"" +
                         "}"
-
+                Log.d("log","${data}")
                 val media = "application/json; charset=utf-8".toMediaType();
                 val body = data.toRequestBody(media)
 
@@ -203,32 +202,6 @@ class SettingAccountActivity : AppCompatActivity() {
         }
     }
 
-    inner class SpinnerListener : AdapterView.OnItemSelectedListener {
-        override fun onNothingSelected(p0: AdapterView<*>?) {
-
-        }
-
-        override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) { // p2가 사용자가 선택한 곳의 인덱스
-            Log.d("지정한 나이", p2.toString())
-            setAge(p2)
-        }
-    }
-
-    private fun setAge(p2: Int) {
-        when(p2){
-            0 -> age = "5"
-            1 -> age = "15"
-            2 -> age = "25"
-            3 -> age = "35"
-            4 -> age = "45"
-            5 -> age = "55"
-            6 -> age = "65"
-            7 -> age = "75"
-            8 -> age = "85"
-            9 -> age = "95"
-            10 -> age = "105"
-        }
-    }
     fun uploadWithTransferUtility(fileName: String, file: File) {
 
         val credentialsProvider = CognitoCachingCredentialsProvider(

@@ -163,7 +163,44 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
     }
 
 
-    private fun deleteGroup() {val api = CoroutineScope(Dispatchers.Default).async {
+    private fun deleteGroup() {
+        val api2 = CoroutineScope(Dispatchers.Default).async {
+            // 보낼 데이터 json으로 만들기
+            val data = "{\n" +
+                    "    \"name\" : \"${name}\"," +
+                    "    \"group_name\" : \"${group_name}\"" +
+                    "}"
+            Log.d("json", "$data")
+            val media = "application/json; charset=utf-8".toMediaType();
+            val body = data.toRequestBody(media)
+
+            // 1. 클라이언트 만들기
+            val client = OkHttpClient.Builder().build()
+            // 2. 요청
+            val req = Request.Builder()
+                    .url("https://f8nl26nr58.execute-api.ap-northeast-2.amazonaws.com/when_member_out_group/")
+                    .put(body)
+                    .build()
+
+            // 3. 응답
+            client.newCall(req).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) { }
+                override fun onResponse(call: Call, response: Response) {
+                    // 응답이 오면 메인스레드에서 처리를 진행한다.
+                    CoroutineScope(Dispatchers.Main).launch {
+                        // 회원조회 응답
+                        try {
+                            val data = response.body!!.string()
+                            Log.d("탈퇴하기", "$data")
+                        } catch (e: Exception) {
+                            Log.d("fragment4", "${e.stackTrace}")
+                        }
+                    }
+                }
+            })
+        }
+
+        val api = CoroutineScope(Dispatchers.Default).async {
         // 보낼 데이터 json으로 만들기
         val data = "{ " +
                 "    \"group_name\" : \"${group_name}\"" +
