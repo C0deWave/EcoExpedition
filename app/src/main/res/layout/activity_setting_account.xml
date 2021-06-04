@@ -10,55 +10,18 @@
         android:id="@+id/userImageView_settingAccount"
         android:layout_width="151dp"
         android:layout_height="151dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="40dp"
         android:clickable="true"
         android:src="@drawable/user2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
-
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:text="프로필 사진 : "
-        android:textColor="#2B2B2B"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/nanumsquarerxtrabold"
-        android:text="계정 설정"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="379dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:srcCompat="@color/cardview_dark_background"
-        tools:src="@tools:sample/backgrounds/scenic" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="이메일"
         android:textColor="#2B2B2B"
@@ -70,7 +33,7 @@
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="비밀번호 변경"
         android:textColor="#2B2B2B"
@@ -82,7 +45,7 @@
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="비밀번호 확인"
         android:textColor="#2B2B2B"
@@ -131,11 +94,15 @@
 
     <Button
         android:id="@+id/changeUserInfo_settingAccount"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="#000000"
         android:text="변경하기"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pwd2Text_settingAccount" />
 

@@ -5,6 +5,6 @@ data class SnsData (
         val sns_pic: String,
         val sns_intro:String,
         var thumsup: String,
-        val writter : String,
+        val writer : String,
         var isFaveriteClick: Boolean? = false
         )

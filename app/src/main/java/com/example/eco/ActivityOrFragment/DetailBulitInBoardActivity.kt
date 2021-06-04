@@ -156,8 +156,9 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                     try {
                         val data = response.body!!.string()
                         Log.d("기부완료", data)
-                        donaAllText_detailBoard.text = (dona.toInt() + dona_all.toInt()).toString() + "원"
-                        donaText_detailBoard.text = "0원"
+                        donaAllText_detailBoard.text = "지금까지 우리가 후원한 금액은 "+(dona.toInt() + dona_all.toInt()).toString() + "원 이에요"
+                        donaText_detailBoard.text = "앞으로 우리가 후원할 금액은 0원 이에요"
+                        dona = "0"
                     } catch (e: Exception) {
                         Log.d("fragment4", "${e.stackTrace}")
                     }
@@ -476,8 +477,8 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                         try {
                             val data = response.body!!.string()
                             Log.d("후원금 추가", "${data}")
-                            donaText_detailBoard.text = participant?.size?.times(1000).toString() + "원"
-                            dona = participant?.size?.times(1000).toString()
+                            dona = ((dona.toInt() + participant?.size?.times(1000)!!).toString())
+                            donaText_detailBoard.text = "앞으로 우리가 후원할 금액은 "+ dona + "원 이에요"
                         } catch (e: Exception) {
                             Log.d("fragment4", "${e.stackTrace}")
                         }

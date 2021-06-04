@@ -57,7 +57,7 @@ class SnsItem(itemView: View, coroutineScope: FragmentActivity) : RecyclerView.V
             Log.d("SnsItemAdapter","${e}")
         }
 
-        itemView.nameText_snsItem.text = snsData.sns_name
+        itemView.nameText_snsItem.text = snsData.writer
         itemView.intro_snsItem.text = snsData.sns_intro
         itemView.favoriteText_snsItem.text = snsData.thumsup
         if (snsData.isFaveriteClick == true) {
