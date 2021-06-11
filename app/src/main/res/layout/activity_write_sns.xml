@@ -6,85 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".ActivityOrFragment.WriteSnsActivity">
 
-    <TextView
-        android:id="@+id/textView111"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="407dp"
-        android:fontFamily="@font/nanumsquarerxtrabold"
-        android:text="SNS후기"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView14"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView1111"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="172dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/cardview_dark_background"
-        tools:src="@tools:sample/backgrounds/scenic" />
-
     <ImageView
         android:id="@+id/selectPicture_writeSns"
         android:layout_width="350dp"
         android:layout_height="150dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView1111"
-        app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
-
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/nanumsquarerxtrabold"
-        android:text="모임 후기 제목"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectPicture_writeSns" />
-
-    <EditText
-        android:id="@+id/snsTitle_WriteSns"
-        android:layout_width="0dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="후기"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 
     <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="84dp"
         android:fontFamily="@font/nanumsquarerxtrabold"
         android:text="내용"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/snsTitle_WriteSns"
-        tools:layout_editor_absoluteX="15dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectPicture_writeSns" />
 
     <EditText
         android:id="@+id/snsIntro_WriteSns"
@@ -95,7 +38,7 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="3줄 정도가 적당합니다."
+        android:hint="여기에 입력해주세요."
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,12 +46,15 @@
 
     <Button
         android:id="@+id/CreateSnsBtn_writeSns"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#8BC34A"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#80000000"
         android:text="작성"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/snsIntro_WriteSns" />
 </androidx.constraintlayout.widget.ConstraintLayout>

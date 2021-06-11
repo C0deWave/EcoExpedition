@@ -36,10 +36,10 @@ class MainViewFragment3 : Fragment() {
 
 
         //시바견 춤추기 기능
-        // 아래 카운트 만큼 춤을 춥니다.
-        var danceCount = 7
+//        // 아래 카운트 만큼 춤을 춥니다.
+//        var danceCount = 7
         Glide.with(this)
-            .load(R.drawable.siba)
+            .load(R.drawable.jjj)
             .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,
@@ -59,7 +59,7 @@ class MainViewFragment3 : Fragment() {
                     isFirstResource: Boolean
                 ): Boolean {
                     if (resource is GifDrawable) {
-                        (resource as GifDrawable).setLoopCount(danceCount)
+//                        (resource as GifDrawable).setLoopCount(danceCount)
                     }
                     return false
                 }
@@ -108,8 +108,8 @@ class MainViewFragment3 : Fragment() {
                         val res = response.body!!.string()
                         var rawData2 = res.substring(1, res.length - 1)
                         val data = Gson().fromJson(rawData2, Donation::class.java)
-                        donationPriceTextView_fragment3.text = deleteDecimal(data.total_amount) + "원"
-                        donationCountTextView_fragment3.text = deleteDecimal(data.num_of_times) + "번 기부"
+                        donationPriceTextView_fragment3.text = "₩" + deleteDecimal(data.total_amount)
+                        donationCountTextView_fragment3.text = "지금까지 "+deleteDecimal(data.num_of_times) + "개의 모임이"
                     }catch (e:Exception){
                         Log.d("fragment","${e.stackTrace}")
                     }

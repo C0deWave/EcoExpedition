@@ -18,10 +18,11 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.eco.GroupItemAdapter
 import com.example.eco.R
-import com.example.eco.dataClass.DustInfo
-import com.example.eco.dataClass.ObserveCenterData
-import com.example.eco.dataClass.TmLocation
+import com.example.eco.adapter.UserInfoAdapter
+import com.example.eco.dataClass.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.gson.Gson
 import com.gun0912.tedpermission.PermissionListener
@@ -30,6 +31,8 @@ import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail__bulit_in_board.*
+import kotlinx.android.synthetic.main.fragment_main_view1.*
+import kotlinx.android.synthetic.main.fragment_main_view4.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -37,6 +40,7 @@ import kotlinx.coroutines.launch
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
+import okhttp3.Response
 import java.io.IOException
 import java.util.*
 
@@ -58,7 +62,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
     var dona = ""
     var dona_all = ""
     var loc = ""
-
+    var pListInfo : MutableList<UserInfo> = mutableListOf()
     private val locationManager by lazy {
         getSystemService(Context.LOCATION_SERVICE) as LocationManager
     }
@@ -151,9 +155,10 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                     // 회원조회 응답
                     try {
                         val data = response.body!!.string()
-                        Log.d("기부완료", "$data")
-                        donaAllText_detailBoard.text = (dona.toInt() + dona_all.toInt()).toString() + "원"
-                        donaText_detailBoard.text = "0원"
+                        Log.d("기부완료", data)
+                        donaAllText_detailBoard.text = "지금까지 우리가 후원한 금액은 "+(dona.toInt() + dona_all.toInt()).toString() + "원 이에요"
+                        donaText_detailBoard.text = "앞으로 우리가 후원할 금액은 0원 이에요"
+                        dona = "0"
                     } catch (e: Exception) {
                         Log.d("fragment4", "${e.stackTrace}")
                     }
@@ -170,7 +175,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                     "    \"name\" : \"${name}\"," +
                     "    \"group_name\" : \"${group_name}\"" +
                     "}"
-            Log.d("json", "$data")
+            Log.d("json", data)
             val media = "application/json; charset=utf-8".toMediaType();
             val body = data.toRequestBody(media)
 
@@ -191,7 +196,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                         // 회원조회 응답
                         try {
                             val data = response.body!!.string()
-                            Log.d("탈퇴하기", "$data")
+                            Log.d("탈퇴하기", data)
                         } catch (e: Exception) {
                             Log.d("fragment4", "${e.stackTrace}")
                         }
@@ -205,7 +210,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
         val data = "{ " +
                 "    \"group_name\" : \"${group_name}\"" +
                 "}"
-        Log.d("json", "$data")
+        Log.d("json", data)
         val media = "application/json; charset=utf-8".toMediaType();
         val body = data.toRequestBody(media)
 
@@ -226,7 +231,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                     // 회원조회 응답
                     try {
                         val data = response.body!!.string()
-                        Log.d("그룹해체", "$data")
+                        Log.d("그룹해체", data)
                         goMain()
                     } catch (e: Exception) {
                         Log.d("fragment4", "${e.stackTrace}")
@@ -244,7 +249,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                     "    \"name\" : \"${name}\"," +
                     "    \"group_name\" : \"${group_name}\"" +
                     "}"
-            Log.d("json", "$data")
+            Log.d("json", data)
             val media = "application/json; charset=utf-8".toMediaType();
             val body = data.toRequestBody(media)
 
@@ -265,7 +270,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                         // 회원조회 응답
                         try {
                             val data = response.body!!.string()
-                            Log.d("탈퇴하기", "$data")
+                            Log.d("탈퇴하기", data)
                             goMain()
                         } catch (e: Exception) {
                             Log.d("fragment4", "${e.stackTrace}")
@@ -344,6 +349,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                 var strDate = "";
                 strDate += (i1+1).toString()+"월 "
                 strDate += (i2).toString()+"일 "
+
                 Log.d("미팅 일자", "$strDate")
                 meeting_date = strDate
                 showTimePicker()
@@ -358,7 +364,7 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
     private fun showTimePicker() {
         var mTimeSetListener = TimePickerDialog.OnTimeSetListener() { timePicker: TimePicker, i: Int, i1: Int ->
             Log.d("시간", "$i:$i1")
-            meeting_date += "${i}시 ${i1}분"
+            meeting_date += "${i}:${i1}"
             Log.d("시간 추가", meeting_date)
             showContextDialog()
         }
@@ -471,8 +477,8 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                         try {
                             val data = response.body!!.string()
                             Log.d("후원금 추가", "${data}")
-                            donaText_detailBoard.text = participant?.size?.times(1000).toString() + "원"
-                            dona = participant?.size?.times(1000).toString()
+                            dona = ((dona.toInt() + participant?.size?.times(1000)!!).toString())
+                            donaText_detailBoard.text = "앞으로 우리가 후원할 금액은 "+ dona + "원 이에요"
                         } catch (e: Exception) {
                             Log.d("fragment4", "${e.stackTrace}")
                         }
@@ -500,21 +506,16 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
         loc = intent.getStringExtra("loc")!!
 
         groupName_detailBoard.text = group_name
-        masterName_detailBoard.text = master_name
+        masterName_detailBoard.text = "모임장 : " + master_name
         intro_detailBoard.text = intro
         meetingDate_detailBoard.text = meeting_date
-        meetingType_detailBoard.text = meeting_type
+        meetingType_detailBoard.text = meeting_type+" 정모"
         meetingIntroText_detailBoard.text = meeting_intro
-        donaText_detailBoard.text = dona + "원"
-        donaAllText_detailBoard.text = dona_all + "원"
+        donaAllText_detailBoard.text = "지금까지 우리가 후원한 금액은 "+ dona_all + "원 이에요"
+        donaText_detailBoard.text = "앞으로 우리가 후원할 금액은 "+ dona + "원 이에요"
         locText_detailBoard.text = loc
 
-        // 참가자 구현
-        var pList = ""
-        participant!!.forEach {
-            pList += "${it}\n"
-        }
-        participant_detailBoard.text = pList
+        addPartcipantAdapter(participant as ArrayList<String>)
 
         //이미지 로딩
         Picasso.with(this).invalidate(Uri.parse(group_pic))
@@ -523,6 +524,52 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
                 .memoryPolicy(MemoryPolicy.NO_CACHE)
                 .networkPolicy(NetworkPolicy.NO_CACHE)
                 .into(groupPicture_detailBoard)
+    }
+
+    private fun addPartcipantAdapter(participant: ArrayList<String>) {
+        for (datum in participant) {
+            val api = CoroutineScope(Dispatchers.Default).async {
+                // 보낼 데이터 json으로 만들기
+                val data = "{\n" +
+                        "    \"name\" : \"${datum}\"" +
+                        "}"
+
+                val media = "application/json; charset=utf-8".toMediaType();
+                val body = data.toRequestBody(media)
+
+                // 1. 클라이언트 만들기
+                val client = OkHttpClient.Builder().build()
+                // 2. 요청
+                val req = Request.Builder()
+                        .url("https://p7s3gkde6f.execute-api.ap-northeast-2.amazonaws.com/member_get/")
+                        .put(body)
+                        .build()
+
+                // 3. 응답
+                client.newCall(req).enqueue(object : Callback {
+                    override fun onFailure(call: Call, e: IOException) {}
+                    override fun onResponse(call: Call, response: Response) {
+                        // 응답이 오면 메인스레드에서 처리를 진행한다.
+                        CoroutineScope(Dispatchers.Main).launch {
+                            // 회원조회 응답
+                            try {
+                                val data = response.body!!.string()
+                                Log.d("응답", "${data}")
+                                var rawData2 = data.substring(31, data.length - 4)
+                                val res = Gson().fromJson(rawData2, UserInfo::class.java)
+                                pListInfo!!.add(res)
+                                Log.d("pListInfo","${pListInfo}")
+                                participantView_detailBoard.adapter = UserInfoAdapter(pListInfo)
+                                participantView_detailBoard.layoutManager = LinearLayoutManager(applicationContext);
+                            } catch (e: java.lang.Exception) {
+                                Log.d("fragment4", "${e}")
+                            }
+                        }
+                    }
+                })
+            }
+
+        }
     }
 
     private fun addPartcipant() {
@@ -682,10 +729,10 @@ class DetailBulitInBoardActivity : AppCompatActivity() {
     // 미세먼지 단계에 따른 단계 반환
     private fun dustGrade(pm10Grade: String): CharSequence? {
         when (pm10Grade) {
-            "1" -> return "미세먼지 : 좋음"
-            "2" -> return "미세먼지 : 보통"
-            "3" -> return "미세먼지 : 나쁨"
-            "4" -> return "미세먼지 : 매우나쁨"
+            "1" -> return "오늘의 미세먼지는 좋아요!"
+            "2" -> return "오늘의 미세먼지는 평범해요."
+            "3" -> return "오늘의 미세먼지는 나빠요."
+            "4" -> return "오늘의 미세먼지는 아주 나빠요."
             else -> {
                 return ""
             }

@@ -103,10 +103,7 @@ class MainViewFragment4 : Fragment() {
 
             // 3. 응답
             client.newCall(req).enqueue(object : Callback {
-                override fun onFailure(call: Call, e: IOException) {
-
-                }
-
+                override fun onFailure(call: Call, e: IOException) { }
                 override fun onResponse(call: Call, response: Response) {
                     // 응답이 오면 메인스레드에서 처리를 진행한다.
                     CoroutineScope(Dispatchers.Main).launch {

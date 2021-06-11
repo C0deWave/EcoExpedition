@@ -74,7 +74,6 @@ class MakeGroupActivity : AppCompatActivity() {
             val uriPathHelper = URIPathHelper()
             val filePath = selectImageUri?.let { it1 -> uriPathHelper?.getPath(this, it1) }
             Toast.makeText(this, "잠시만 기다려 주세요.", Toast.LENGTH_SHORT).show()
-            TODO("ssssssss")
             uploadWithTransferUtility(fileName = "${groupNameText_writeBoard.text}.jpg", file = File(filePath))
             uploadImage()
         }

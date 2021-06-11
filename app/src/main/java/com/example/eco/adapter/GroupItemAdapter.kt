@@ -31,6 +31,7 @@ class GroupItemAdapter(var data: MutableList<GroupListDataItem>) : RecyclerView.
 class BoardItem(itemView  : View) : RecyclerView.ViewHolder(itemView){
     fun bindData(boardData: GroupListDataItem) {
         itemView.titleText_BoardItem.text = boardData.group_name
+        itemView.loc_boardItem.text = boardData.loc
 
         //이미지 로딩
         Picasso.with(itemView.context)
